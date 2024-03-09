@@ -1,0 +1,14 @@
+server:
+  port: 7070
+spring:
+  application:
+    name: msvc-gateway
+
+eureka:
+  instance:
+    hostname: eureka-server
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    server-url:
+      defaultZone: http://msvc-eureka:${server.port}/eureka/
