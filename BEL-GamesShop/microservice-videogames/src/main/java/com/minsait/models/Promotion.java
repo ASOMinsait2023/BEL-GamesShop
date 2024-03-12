@@ -18,6 +18,7 @@
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
+
         private String description;
         @Column(name = "start_date")
         private LocalDate startDate;

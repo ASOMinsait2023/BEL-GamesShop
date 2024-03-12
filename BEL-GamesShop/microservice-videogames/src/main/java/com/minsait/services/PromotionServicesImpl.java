@@ -30,6 +30,7 @@ public class PromotionServicesImpl implements IPromotionServices{
     @Transactional
     public Promotion save(Promotion promotion) {
         return promotionRepository.save(promotion);
+
     }
 
     @Override
@@ -41,5 +42,12 @@ public class PromotionServicesImpl implements IPromotionServices{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Promotion> findPromotionsByVideoGameId(Long videogameId) {
+        List<Promotion> promotions = promotionRepository.findByVideogameId(videogameId);
+
+        return promotions;
     }
 }

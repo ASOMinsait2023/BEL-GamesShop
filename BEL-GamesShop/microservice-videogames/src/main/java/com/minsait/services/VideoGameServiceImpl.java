@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VideoGameServiceImpl implements IVideoGameServices{
@@ -42,6 +43,10 @@ public class VideoGameServiceImpl implements IVideoGameServices{
             return true;
        }
        return false;
+    }
+    @Override
+    public VideoGame findVideoGameById(Long id) {
+        return videoGameRespository.findById(id).orElse(null);
     }
 
 }

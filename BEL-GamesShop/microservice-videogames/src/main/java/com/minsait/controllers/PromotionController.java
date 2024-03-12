@@ -1,6 +1,7 @@
 package com.minsait.controllers;
 
 import com.minsait.models.Promotion;
+import com.minsait.models.VideoGame;
 import com.minsait.services.IPromotionServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,21 +23,16 @@ public class PromotionController {
     @Autowired
     IPromotionServices promotionServices;
 
+
     @GetMapping
     ResponseEntity<?> findAllPromotion(){
 
         List<Promotion> promotions =  promotionServices.findAll();
-
-        promotions.forEach(promotion -> {
-            BigDecimal originalPrice = promotion.getVideogame().getPrice();
-            BigDecimal discountedPrice = promotion.calculateDiscountedPrice(originalPrice);
-            promotion.getVideogame().setPrice(discountedPrice);
-        });
         return ResponseEntity.ok(promotions);
     }
 
     @GetMapping("{id}")
-    ResponseEntity<?> findByIdPromotion(@PathVariable Long id){
+    ResponseEntity<?> findByIdPromotion(@PathVariable Long id) {
         try {
             var promotion = promotionServices.findById(id);
             BigDecimal originalPrice = promotion.getVideogame().getPrice();
@@ -59,8 +55,12 @@ public class PromotionController {
             response.put("status", "CREATED");
             response.put("mensaje", "Se ha creado un nuevo juego");
             return ResponseEntity.ok(response);
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            response.put("status", "ERROR");
+            response.put("mensaje", "No se pudo crear la promoción");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PutMapping("{id}")
@@ -88,5 +88,6 @@ public class PromotionController {
             return ResponseEntity.notFound().build();
         }
     }
+
 
 }

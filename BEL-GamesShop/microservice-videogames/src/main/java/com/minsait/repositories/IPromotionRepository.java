@@ -3,6 +3,8 @@ package com.minsait.repositories;
 import com.minsait.models.Promotion;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IPromotionRepository extends JpaRepository<Promotion, Long> {
+import java.util.List;
 
+public interface IPromotionRepository extends JpaRepository<Promotion, Long> {
+    List<Promotion> findByVideogameId(Long videogameId);
   }
