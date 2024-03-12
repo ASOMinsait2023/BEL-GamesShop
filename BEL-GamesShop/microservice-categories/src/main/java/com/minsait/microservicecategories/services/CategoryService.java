@@ -33,7 +33,16 @@ public class CategoryService implements ICategoryService{
 
     @Override
     @Transactional
-    public void delete(Long id) {
+    public void deleteId(Long id) {
         categoryRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateId(Categories category) {
+        var categoryToUpdate = categoryRepository.findById(category.getIdCategory()).orElseThrow();
+        categoryToUpdate.setNameCategory(category.getNameCategory());
+        categoryToUpdate.setDescription(category.getDescription());
+        categoryRepository.save(category);
     }
 }
