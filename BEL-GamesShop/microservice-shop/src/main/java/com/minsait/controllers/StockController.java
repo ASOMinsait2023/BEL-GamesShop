@@ -28,11 +28,30 @@ public class StockController {
     }
     @GetMapping({"/{id}"})
     public ResponseEntity<?> findById(@PathVariable Long id){
-        return ResponseEntity.ok(stockService.findById(id));
+        try{
+            return ResponseEntity.ok(stockService.findById(id));
+        }catch (NoSuchElementException var3) {
+            return ResponseEntity.notFound().build();
+        }
     }
     @DeleteMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> delete(@PathVariable Long id) {
-        return ResponseEntity.ok(stockService.deleteById(id));
+        try{
+            return ResponseEntity.ok(stockService.deleteById(id));
+        }catch (NoSuchElementException var3) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Stock newStock) {
+            Stock existingStock = stockService.findById(id);
+            if (existingStock == null) {
+                return ResponseEntity.notFound().build();
+            }
+            existingStock.setVideogame(newStock.getVideogame());
+            existingStock.setStock(newStock.getStock());
+            return ResponseEntity.ok(stockService.save(existingStock));
+
     }
 }
