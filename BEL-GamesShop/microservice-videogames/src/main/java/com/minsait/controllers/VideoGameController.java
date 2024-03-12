@@ -115,7 +115,6 @@ public class VideoGameController {
             response.put("videoGame", videoGame);
 
             if (appliedPromotion != null) {
-                // Incluir solo los campos necesarios de la promoción aplicada
                 Map<String, Object> appliedPromotionData = new HashMap<>();
                 appliedPromotionData.put("id", appliedPromotion.getId());
                 appliedPromotionData.put("description", appliedPromotion.getDescription());

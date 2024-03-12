@@ -5,28 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="751ea5a4-3801-4302-9a70-aba72a6655f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/exception/PromotionCreationException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-categories/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-config/src/main/resources/configurations/msvc-eureka.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-config/src/main/resources/configurations/msvc-eureka.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-shop/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/PromotionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/PromotionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/VideoGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/VideoGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/exception/PromotionsNotAvailableException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/Promotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/Promotion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/VideoGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/VideoGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IPromotionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IPromotionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IVideoGameRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IVideoGameRespository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IPromotionServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IPromotionServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IVideoGameServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IVideoGameServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/PromotionServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/PromotionServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/VideoGameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/VideoGameServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +45,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feature/feature__videogame__pruebas",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/SoporteTI/IdeaProjects/AcademiaAso/BEL-GamesShop/BEL-GamesShop/microservice-config/src/main/resources/configurations",
