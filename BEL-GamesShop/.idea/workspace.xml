@@ -5,12 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="751ea5a4-3801-4302-9a70-aba72a6655f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/exception/PromotionCreationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-config/src/main/resources/configurations/msvc-eureka.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-config/src/main/resources/configurations/msvc-eureka.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/PromotionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/PromotionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/VideoGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/VideoGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/exception/PromotionsNotAvailableException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/Promotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/Promotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/VideoGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/VideoGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IPromotionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IPromotionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IVideoGameRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IVideoGameRespository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IPromotionServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IPromotionServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IVideoGameServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IVideoGameServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/PromotionServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/PromotionServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/VideoGameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/VideoGameServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -29,17 +58,91 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.MicroserviceConfigApplication.executor": "Run",
+    "Application.MicroserviceEurekaApplication.executor": "Run",
+    "Application.MicroserviceVideogamesApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/SoporteTI/IdeaProjects/AcademiaAso/BEL-GamesShop/BEL-GamesShop",
+    "last_opened_file_path": "C:/Users/SoporteTI/IdeaProjects/AcademiaAso/BEL-GamesShop/BEL-GamesShop/microservice-config/src/main/resources/configurations",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SoporteTI\IdeaProjects\AcademiaAso\BEL-GamesShop\BEL-GamesShop\microservice-config\src\main\resources\configurations" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.minsait.controllers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MicroserviceVideogamesApplication">
+    <configuration name="MicroserviceConfigApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.minsait.MicroserviceConfigApplication" />
+      <module name="microservice-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.minsait.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MicroserviceEurekaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.minsait.MicroserviceEurekaApplication" />
+      <module name="microservice-eureka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.minsait.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MicroserviceVideogamesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.minsait.MicroserviceVideogamesApplication" />
+      <module name="microservice-videogames" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.minsait.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MicroserviceVideogamesApplication" />
+        <item itemvalue="Application.MicroserviceEurekaApplication" />
+        <item itemvalue="Application.MicroserviceConfigApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e" />
+        <option value="jdk-20.0.2-corretto-20.0.2.1-4caba194b151-5bc9ecd2" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
