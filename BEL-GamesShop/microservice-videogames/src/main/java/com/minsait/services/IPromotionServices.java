@@ -11,4 +11,6 @@ public interface IPromotionServices {
     Promotion save(Promotion promotion);
     boolean deleteById(Long id);
 
+    List<Promotion> getPromotionSearchVideogameById(Long videoGameId);
+
 }

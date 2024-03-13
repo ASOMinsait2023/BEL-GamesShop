@@ -20,4 +20,6 @@ public interface IVideoGameRepository extends JpaRepository<VideoGame, Long> {
             "WHERE v.id = :videoGameId AND p.start_date <= CURDATE() AND p.end_date >= CURDATE()", nativeQuery = true)
     List<VideoGame> findVideoGameWithDiscount(@Param("videoGameId") Long videoGameId);
 
+
+
 }

@@ -45,5 +45,10 @@ public class PromotionServicesImpl implements IPromotionServices{
         }
         return false;
     }
+    @Override
+    @Transactional(readOnly = true)
+    public List<Promotion> getPromotionSearchVideogameById(Long videoGameId) {
+        return promotionRepository.getPromotionSearchVideogameById(videoGameId);
+    }
 
 }

@@ -5,6 +5,8 @@ package com.minsait.controllers;
 import com.minsait.exception.PromotionException;
 import com.minsait.models.Promotion;
 import com.minsait.models.VideoGame;
+import com.minsait.models.dto.PromotionDTO;
+import com.minsait.services.IPromotionServices;
 import com.minsait.services.IVideoGameServices;
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/videogames")
@@ -25,6 +28,9 @@ public class VideoGameController {
 
     @Autowired
     IVideoGameServices videoGameServices;
+
+    @Autowired
+    IPromotionServices promotionServices;
 
 
     @GetMapping
@@ -94,6 +100,22 @@ public class VideoGameController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("There are no promotions available for the current date.");
         } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+    @GetMapping("/promotion/{videoGameId}")
+    ResponseEntity<?> getVideoGameSearchByIdPromotion(@PathVariable Long videoGameId){
+        try {
+            List<Promotion> promotions = promotionServices.getPromotionSearchVideogameById(videoGameId);
+            List<PromotionDTO> promotionDTOList = promotions.stream()
+                    .map(promotion -> new PromotionDTO(promotion.getId(), promotion.getDescription(), promotion.getStartDate(),
+                            promotion.getEndDate(), promotion.getPercentage(), promotion.getVideogame().getId(), promotion.getVideogame().getName(),
+                            promotion.getVideogame().getPrice()))
+                    .collect(Collectors.toList());
+            return ResponseEntity.ok(promotionDTOList);
+        }catch (NoSuchElementException e){
             return ResponseEntity.notFound().build();
         }
 

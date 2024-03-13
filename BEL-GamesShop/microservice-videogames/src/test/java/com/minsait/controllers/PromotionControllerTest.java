@@ -88,10 +88,7 @@ class PromotionControllerTest {
         var promotion = new Promotion(null, "La primavera está a la vuelta de la esquina y celebrar el cambio de estación de la mejor forma posible, ya que la tienda de Valve ha iniciado la promoción Rebajas de Primavera de 2024, en la que el precio de cientos de videojuegos se ha reducido considerablemente durante unos cuantos días.",
                 LocalDate.parse("2024-03-06"),
                 LocalDate.parse("2025-04-01"),
-                50, new VideoGame(1L, "PAYDAY 2 ", " is an action-packed, four-player co-op " +
-                "shooter that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, " +
-                "Wolf and Chains - as they descend on Washington DC for an epic crime spree",
-                "2013-08-13", new BigDecimal("280.50")));
+                50, new VideoGame());
 
         var response = new HashMap<String, Object>();
         response.put("fecha", LocalDate.now().toString());
@@ -113,10 +110,7 @@ class PromotionControllerTest {
         var promotion = new Promotion(null, "La primavera está a la vuelta de la esquina y celebrar el cambio de estación de la mejor forma posible, ya que la tienda de Valve ha iniciado la promoción Rebajas de Primavera de 2024, en la que el precio de cientos de videojuegos se ha reducido considerablemente durante unos cuantos días.",
                 LocalDate.parse("2024-03-06"),
                 LocalDate.parse("2025-04-01"),
-                50, new VideoGame(1L, "PAYDAY 2 ", " is an action-packed, four-player co-op " +
-                "shooter that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, " +
-                "Wolf and Chains - as they descend on Washington DC for an epic crime spree",
-                "2013-08-13", new BigDecimal("280.50")));
+                50,new VideoGame());
 
         doThrow(new NoSuchElementException()).when(promotionServices).save(promotion);
 
@@ -131,10 +125,7 @@ class PromotionControllerTest {
         var promotion = new Promotion(null, "La primavera está a la vuelta de la esquina y celebrar el cambio de estación de la mejor forma posible, ya que la tienda de Valve ha iniciado la promoción Rebajas de Primavera de 2024, en la que el precio de cientos de videojuegos se ha reducido considerablemente durante unos cuantos días.",
                 LocalDate.parse("2024-03-06"),
                 LocalDate.parse("2025-04-01"),
-                50, new VideoGame(1L, "PAYDAY 2 ", " is an action-packed, four-player co-op " +
-                "shooter that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, " +
-                "Wolf and Chains - as they descend on Washington DC for an epic crime spree",
-                "2013-08-13", new BigDecimal("280.50")));
+                50, new VideoGame());
 
         doThrow(new RuntimeException("Promotion could not be created")).when(promotionServices).save(promotion);
 
@@ -159,7 +150,7 @@ class PromotionControllerTest {
         promotionUpdate.setVideogame(new VideoGame(1L, "PAYDAY 2 ", " is an action-packed, four-player co-op " +
                 "shooter that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, " +
                 "Wolf and Chains - as they descend on Washington DC for an epic crime spree",
-                "2013-08-13", new BigDecimal("280.50")));
+                "2013-08-13", new BigDecimal("280.50"),List.of( new Promotion())));
         when(promotionServices.save((any(Promotion.class)))).thenReturn(promotionUpdate);
 
         mvc.perform(put("/api/v1/promotion/1")

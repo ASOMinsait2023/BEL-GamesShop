@@ -1,6 +1,5 @@
 package com.minsait.services;
 
-
 import com.minsait.models.VideoGame;
 import com.minsait.repositories.IVideoGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +48,5 @@ public class VideoGameServiceImpl implements IVideoGameServices{
     public List<VideoGame> getVideoGameWithDiscount(Long videoGameId) {
         return videoGameRepository.findVideoGameWithDiscount(videoGameId);
     }
+
 }

@@ -2,7 +2,9 @@ package com.minsait.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.minsait.exception.PromotionException;
+import com.minsait.models.Promotion;
 import com.minsait.models.VideoGame;
+import com.minsait.services.IPromotionServices;
 import com.minsait.services.IVideoGameServices;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -33,6 +36,9 @@ class VideoGameControllerTest {
     private MockMvc mockMvc;
     @MockBean
     private IVideoGameServices videoGameServices;
+
+    @MockBean
+    private IPromotionServices promotionServices;
 
     private ObjectMapper mapper;
 
@@ -81,7 +87,7 @@ class VideoGameControllerTest {
         var videogame = new VideoGame(null, "PAYDAY 2 ", " is an action-packed, four-player co-op " +
                 "shooter that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, " +
                 "Wolf and Chains - as they descend on Washington DC for an epic crime spree",
-                "2013-08-13", new BigDecimal("280.50"));
+                "2013-08-13", new BigDecimal("280.50"), List.of( new Promotion()));
 
         var response = new HashMap<String, Object>();
         response.put("fecha", LocalDate.now().toString());
@@ -104,7 +110,7 @@ class VideoGameControllerTest {
         var videogame = new VideoGame(null, "PAYDAY 2 ", " is an action-packed, four-player co-op " +
                 "shooter that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, " +
                 "Wolf and Chains - as they descend on Washington DC for an epic crime spree",
-                "2013-08-13", new BigDecimal("280.50"));
+                "2013-08-13", new BigDecimal("280.50"), List.of( new Promotion()));
         doThrow(new RuntimeException("Error al guardar el videojuego")).when(videoGameServices).save(any());
         mockMvc.perform(post("/api/v1/videogames/create")
                         .contentType("application/json")
@@ -195,5 +201,20 @@ class VideoGameControllerTest {
 
         mockMvc.perform(get("/api/v1/videogames/discount/1"))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void testGetVideoGameSearchByIdPromotion() throws Exception{
+
+        Promotion promotion = Datos.createPromotion().get();
+        Promotion promotion1 = Datos.createPromotion2().get();
+        List<Promotion> promotions = Arrays.asList(promotion, promotion1);
+        when(promotionServices.getPromotionSearchVideogameById(1L)).thenReturn(promotions);
+
+        mockMvc.perform(get("/api/v1/videogames/promotion/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(2))
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[1].id").value(2));
     }
 }
