@@ -1,7 +1,6 @@
 package com.minsait.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,10 +9,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="Stock")
+@Table(name="stock")
 public class Stock {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long shop;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "shop")
+    private Shop shop;
     private Long videogame;
     private Integer stock;
+
 }

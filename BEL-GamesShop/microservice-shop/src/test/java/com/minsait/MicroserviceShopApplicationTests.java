@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class MicroserviceShopApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void testMainMethod() {
+		MicroserviceShopApplication.main(new String[]{});
 	}
 
 }

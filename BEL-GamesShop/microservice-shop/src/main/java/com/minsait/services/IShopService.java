@@ -7,8 +7,7 @@ import java.util.Optional;
 public interface IShopService {
     List<Shop> findAll();
     Shop findById(Long id);
-    void save(Shop shop);
+    Shop save(Shop shop);
     boolean delleteById(Long idCuenta);
-    Optional<Shop> queryForAddress(String address);
-    Optional<Stock> queryStockShop(Long id);
+    List<Shop> queryForAddress(String address);
 }
