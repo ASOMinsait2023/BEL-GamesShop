@@ -1,12 +1,8 @@
 package com.minsait.services;
 
 
-
-
 import com.minsait.models.VideoGame;
 import com.minsait.repositories.IVideoGameRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,8 +14,7 @@ import java.util.List;
 @Service
 public class VideoGameServiceImpl implements IVideoGameServices{
 
-    private static final Logger logger = LoggerFactory.getLogger(VideoGameServiceImpl.class);
-    @Autowired
+     @Autowired
     IVideoGameRepository videoGameRepository;
 
     @Override

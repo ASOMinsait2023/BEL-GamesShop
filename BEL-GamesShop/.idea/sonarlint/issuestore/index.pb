@@ -53,3 +53,5 @@ Qmicroservice-videogames/src/main/java/com/minsait/dto/DiscountedVideoGameDTO.ja
 Smicroservice-videogames/src/main/java/com/minsait/dto/VideoGameWithDiscountDTO.java,1\0\1049ea406965546c14ca1e869bc32e09e8e3fcbe
 ƒ
 Smicroservice-videogames/src/main/java/com/minsait/exception/PromotionException.java,c\4\c426f05abeba8410add991d37e3df5b856eb8410
+ˆ
+Xmicroservice-videogames/src/test/java/com/minsait/services/VideoGameServiceImplTest.java,2\b\2b01cb70c665d0b64db8cb9ff1b5a7ada6071079

@@ -50,13 +50,13 @@ public class PromotionController {
         try {
             promotionServices.save(promotion);
             response.put("status", "CREATED");
-            response.put("mensaje", "Se ha creado un nuevo juego");
+            response.put("mensaje", "A new Promotion has been created");
             return ResponseEntity.ok(response);
         } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         } catch (Exception e) {
             response.put("status", "ERROR");
-            response.put("mensaje", "No se pudo crear la promoción");
+            response.put("mensaje", "Promotion could not be created");
             return ResponseEntity.badRequest().body(response);
         }
     }

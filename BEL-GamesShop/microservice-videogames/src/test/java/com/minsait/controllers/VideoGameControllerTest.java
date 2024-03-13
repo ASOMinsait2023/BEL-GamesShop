@@ -60,7 +60,7 @@ class VideoGameControllerTest {
     }
 
     @Test
-    void testfindById() throws Exception{
+    void testFindById() throws Exception{
 
         when(videoGameServices.findById(1L)).thenReturn(Datos.createVideogame1().get());
         mockMvc.perform(get("/api/v1/videogames/1"))
@@ -70,14 +70,14 @@ class VideoGameControllerTest {
 
     }
     @Test
-    void testfindByIdnotFound() throws Exception{
+    void testFindByIdNotFound() throws Exception{
         when(videoGameServices.findById(1L)).thenThrow(new NoSuchElementException());
         mockMvc.perform(get("/api/v1/videogames/1"))
                 .andExpect(status().isNotFound());
     }
 
     @Test
-    void testsave() throws Exception{
+    void testSave() throws Exception{
         var videogame = new VideoGame(null, "PAYDAY 2 ", " is an action-packed, four-player co-op " +
                 "shooter that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, " +
                 "Wolf and Chains - as they descend on Washington DC for an epic crime spree",
@@ -155,7 +155,7 @@ class VideoGameControllerTest {
     }
 
     @Test
-    void testdelete() throws Exception {
+    void testDelete() throws Exception {
         when(videoGameServices.deleteById(1L)).thenReturn(true);
         mockMvc.perform(delete("/api/v1/videogames/1")
                 .contentType("application/json"))
@@ -163,7 +163,7 @@ class VideoGameControllerTest {
     }
 
     @Test
-    void testdeleteNotFoundException() throws Exception {
+    void testDeleteNotFoundException() throws Exception {
         doThrow(new NoSuchElementException()).when(videoGameServices).deleteById(1L);
         mockMvc.perform(delete("/api/v1/videogames/1")
                         .contentType("application/json"))
