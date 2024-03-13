@@ -32,9 +32,7 @@ public class Datos {
     public static Optional<Promotion> createPromotion() {
 
         return Optional.of(new Promotion(1L,
-                "Las ofertas de verano son el momento más esperado por los jugadores de la tienda de Valve. Hasta el próximo 13 " +
-                        "de julio a las 19:00 (CEST) tendrás acceso a descuentos en juegos de todo tipo del catálogo. Además de la importante rebaja de Steam Deck, " +
-                        "lo que más les importa a los jugadores son los juegos. Repasamos los descuentos más destacados de este arranque del periodo festivo",
+                "Promotion1",
                 LocalDate.parse("2024-06-29"),
                 LocalDate.parse("2024-07-13"),
                 50,
@@ -43,8 +41,7 @@ public class Datos {
     public static Optional<Promotion> createPromotion2() {
 
         return Optional.of(new Promotion(2L,
-                "La primavera está a la vuelta de la esquina y celebrar el cambio de estación de la mejor forma posible, ya que la tienda de Valve ha " +
-                        "iniciado la promoción Rebajas de Primavera de 2024, en la que el precio de cientos de videojuegos se ha reducido considerablemente durante unos cuantos días.",
+                "Promotion2",
                 LocalDate.parse("2024-03-06"),
                 LocalDate.parse("2025-04-01"),
                 50,

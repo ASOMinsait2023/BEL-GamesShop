@@ -54,7 +54,7 @@ class PromotionControllerTest {
         mvc.perform(get("/api/v1/promotion"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].description").value("Las ofertas de verano son el momento más esperado por los jugadores de la tienda de Valve. Hasta el próximo 13 de julio a las 19:00 (CEST) tendrás acceso a descuentos en juegos de todo tipo del catálogo. Además de la importante rebaja de Steam Deck, lo que más les importa a los jugadores son los juegos. Repasamos los descuentos más destacados de este arranque del periodo festivo"));
+                .andExpect(jsonPath("$[0].description").value("Promotion1"));
 
         verify(promotionServices, times(1)).findAll();
 
@@ -67,7 +67,7 @@ class PromotionControllerTest {
         mvc.perform(get("/api/v1/promotion/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1L))
-                .andExpect(jsonPath("$.description").value("Las ofertas de verano son el momento más esperado por los jugadores de la tienda de Valve. Hasta el próximo 13 de julio a las 19:00 (CEST) tendrás acceso a descuentos en juegos de todo tipo del catálogo. Además de la importante rebaja de Steam Deck, lo que más les importa a los jugadores son los juegos. Repasamos los descuentos más destacados de este arranque del periodo festivo"))
+                .andExpect(jsonPath("$.description").value("Promotion1"))
                 .andExpect(jsonPath("$.startDate").value("2024-06-29"))
                 .andExpect(jsonPath("$.endDate").value("2024-07-13"));
 
