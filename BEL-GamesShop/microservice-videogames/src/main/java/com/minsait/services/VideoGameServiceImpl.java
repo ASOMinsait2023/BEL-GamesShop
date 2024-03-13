@@ -1,52 +1,57 @@
 package com.minsait.services;
 
+
+
+
 import com.minsait.models.VideoGame;
-import com.minsait.repositories.IVideoGameRespository;
+import com.minsait.repositories.IVideoGameRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class VideoGameServiceImpl implements IVideoGameServices{
 
+    private static final Logger logger = LoggerFactory.getLogger(VideoGameServiceImpl.class);
     @Autowired
-    private IVideoGameRespository videoGameRespository;
+    IVideoGameRepository videoGameRepository;
 
     @Override
     @Transactional(readOnly = true)
     public List<VideoGame> findAll() {
-        return (List<VideoGame>) videoGameRespository.findAll();
+        return (List<VideoGame>) videoGameRepository.findAll();
     }
 
     @Override
     @Transactional(readOnly = true)
     public VideoGame findById(Long id) {
-        return videoGameRespository.findById(id).orElseThrow();
+        return videoGameRepository.findById(id).orElseThrow();
     }
 
     @Override
     @Transactional
     public VideoGame save(VideoGame videoGame) {
-         return videoGameRespository.save(videoGame);
+         return videoGameRepository.save(videoGame);
 
     }
 
     @Override
     @Transactional
     public boolean deleteById(Long id) {
-       var videoGameDelete = videoGameRespository.findById(id);
+       var videoGameDelete = videoGameRepository.findById(id);
        if (videoGameDelete.isPresent()){
-           videoGameRespository.deleteById(id);
+           videoGameRepository.deleteById(id);
             return true;
        }
        return false;
     }
-    @Override
-    public VideoGame findVideoGameById(Long id) {
-        return videoGameRespository.findById(id).orElse(null);
+    public List<VideoGame> getVideoGameWithDiscount(Long videoGameId) {
+        return videoGameRepository.findVideoGameWithDiscount(videoGameId);
     }
-
 }

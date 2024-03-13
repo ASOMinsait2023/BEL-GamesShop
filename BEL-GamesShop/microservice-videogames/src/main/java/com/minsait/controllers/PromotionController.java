@@ -35,9 +35,6 @@ public class PromotionController {
     ResponseEntity<?> findByIdPromotion(@PathVariable Long id) {
         try {
             var promotion = promotionServices.findById(id);
-            BigDecimal originalPrice = promotion.getVideogame().getPrice();
-            BigDecimal discountedPrice = promotion.calculateDiscountedPrice(originalPrice);
-            promotion.getVideogame().setPrice(discountedPrice);
             return ResponseEntity.ok(promotion);
         } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();

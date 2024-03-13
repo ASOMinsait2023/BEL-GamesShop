@@ -9,8 +9,6 @@ I
 Vmicroservice-videogames/src/main/java/com/minsait/controllers/PromotionController.java,5\6\56184e23e6e4cace44b42bcebe30fa52aa5a4cde
 Ö
 Umicroservice-videogames/src/main/java/com/minsait/services/PromotionServicesImpl.java,0\6\067db4db12879e8d02ee9556b3c3ee758179296c
-ê
-`microservice-videogames/src/main/java/com/minsait/exception/PromotionsNotAvailableException.java,5\6\56cd85af854140e1a16656cdc724d364a976cf97
 Ç
 Rmicroservice-videogames/src/main/java/com/minsait/services/IVideoGameServices.java,8\a\8aed01225818b67e173381c615998afdd58467aa
 Ç
@@ -41,3 +39,17 @@ Kmicroservice-videogames/src/main/java/com/minsait/config/SwaggerConfig.java,8\
 Tmicroservice-videogames/src/main/java/com/minsait/services/VideoGameServiceImpl.java,a\2\a2af489e309fa84c92bcfb7ff061aba71936b000
 à
 Xmicroservice-videogames/src/main/java/com/minsait/repositories/IPromotionRepository.java,8\9\894d07f4170399dfa9f4d8ed5d8cce44c2d12b91
+ç
+]microservice-videogames/src/test/java/com/minsait/MicroserviceVideogamesApplicationTests.java,b\8\b8a9b5a94d56eee5cdeb57ce32646a34e43febcc
+}
+Mmicroservice-videogames/src/main/java/com/minsait/dto/DiscountedPriceDTO.java,e\5\e58bd736e4f5cdfb7762ba473f735f7e302e8d5f
+á
+Wmicroservice-videogames/src/main/java/com/minsait/repositories/VideoGameRepository.java,b\6\b66c2364133725631139a1de5cb08400c8dcf30d
+à
+Xmicroservice-videogames/src/main/java/com/minsait/repositories/IVideoGameRepository.java,3\f\3f402312b5e47f05725baed8f005ef4fac58853b
+Å
+Qmicroservice-videogames/src/main/java/com/minsait/dto/DiscountedVideoGameDTO.java,8\e\8e76af489f8046000081865d4f176ee7f1693e93
+É
+Smicroservice-videogames/src/main/java/com/minsait/dto/VideoGameWithDiscountDTO.java,1\0\1049ea406965546c14ca1e869bc32e09e8e3fcbe
+É
+Smicroservice-videogames/src/main/java/com/minsait/exception/PromotionException.java,c\4\c426f05abeba8410add991d37e3df5b856eb8410

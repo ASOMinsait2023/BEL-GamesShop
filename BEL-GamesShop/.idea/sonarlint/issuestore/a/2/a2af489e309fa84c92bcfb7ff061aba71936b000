@@ -1,3 +1,5 @@
 
-_
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8­ûÔ‚ã1
+D
+java:S1905"'Remove this unnecessary cast to "List".(ÂïĞ£8­Ûš¬ã1
+L
+java:S1068"*Remove this unused "logger" private field.(¶³ºûÿÿÿÿ8Œ ¼§ã1

@@ -1,15 +1,5 @@
 
-_
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8˜Ñƒã1
-H
-java:S1452"&Remove usage of generic wildcard type.(Ìâ®öıÿÿÿÿ8›Ñƒã1
-H
-java:S1452#"&Remove usage of generic wildcard type.(©º€ôúÿÿÿÿ8›Ñƒã1
-H
-java:S1452/"&Remove usage of generic wildcard type.(Åƒ®üÿÿÿÿ8œÑƒã1
-H
-java:S1452C"&Remove usage of generic wildcard type.(ääÇ½şÿÿÿÿ8Ñƒã1
-C
-java:S1452S"&Remove usage of generic wildcard type.(ü‹˜È8 Ñƒã1
 [
 java:S1128"9Remove this unused import 'com.minsait.models.VideoGame'.(Ï”¢Æûÿÿÿÿ8Ôåƒã1
+N
+java:S1128"1Remove this unused import 'java.math.BigDecimal'.(êêŠ8»ò‘ ã1

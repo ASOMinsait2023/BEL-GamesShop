@@ -1,17 +1,19 @@
 package com.minsait.controllers;
 
 
+
+import com.minsait.exception.PromotionException;
 import com.minsait.models.Promotion;
 import com.minsait.models.VideoGame;
-import com.minsait.services.IPromotionServices;
 import com.minsait.services.IVideoGameServices;
 import lombok.extern.slf4j.Slf4j;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -20,10 +22,10 @@ import java.util.*;
 @Slf4j
 public class VideoGameController {
 
-    @Autowired
-    IPromotionServices promotionService;
+
     @Autowired
     IVideoGameServices videoGameServices;
+
 
     @GetMapping
     ResponseEntity<?> findAllVideoGame(){
@@ -83,53 +85,17 @@ public class VideoGameController {
             return ResponseEntity.notFound().build();
         }
     }
-    @GetMapping("/apply-promotion/{videogameId}")
-    public ResponseEntity<?> applyPromotionToVideoGame(@PathVariable("videogameId") Long videogameId) {
+    @GetMapping("/discount/{videoGameId}")
+    ResponseEntity<?> getVideoGameWithDiscount(@PathVariable Long videoGameId) {
+
         try {
-            VideoGame videoGame = videoGameServices.findVideoGameById(videogameId);
-            if (videoGame == null) {
-                return ResponseEntity.notFound().build();
-            }
-
-            BigDecimal finalPrice = videoGame.getPrice();
-            Promotion appliedPromotion = null;
-
-            LocalDate currentDate = LocalDate.now();
-
-            List<Promotion> promotions = promotionService.findPromotionsByVideoGameId(videogameId);
-            for (Promotion promotion : promotions) {
-                LocalDate startDate = promotion.getStartDate();
-                LocalDate endDate = promotion.getEndDate();
-                if (currentDate.isAfter(startDate) && currentDate.isBefore(endDate)) {
-                    BigDecimal originalPrice = videoGame.getPrice();
-                    BigDecimal discountedPrice = promotion.calculateDiscountedPrice(originalPrice);
-                    finalPrice = discountedPrice;
-                    appliedPromotion = promotion;
-                    break;
-                }
-            }
-
-            videoGame.setPrice(finalPrice);
-
-            Map<String, Object> response = new HashMap<>();
-            response.put("videoGame", videoGame);
-
-            if (appliedPromotion != null) {
-                Map<String, Object> appliedPromotionData = new HashMap<>();
-                appliedPromotionData.put("id", appliedPromotion.getId());
-                appliedPromotionData.put("description", appliedPromotion.getDescription());
-                appliedPromotionData.put("startDate", appliedPromotion.getStartDate());
-                appliedPromotionData.put("endDate", appliedPromotion.getEndDate());
-                appliedPromotionData.put("percentage", appliedPromotion.getPercentage());
-                response.put("appliedPromotion", appliedPromotionData);
-            } else {
-                response.put("appliedPromotion", null);
-            }
-
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return  ResponseEntity.ok(videoGameServices.getVideoGameWithDiscount(videoGameId));
+        } catch (PromotionException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("There are no promotions available for the current date.");
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
         }
-    }
 
+    }
 }

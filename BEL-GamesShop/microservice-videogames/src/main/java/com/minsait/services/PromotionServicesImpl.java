@@ -3,6 +3,8 @@ package com.minsait.services;
 import com.minsait.models.Promotion;
 import com.minsait.repositories.IPromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +19,7 @@ public class PromotionServicesImpl implements IPromotionServices{
     @Override
     @Transactional(readOnly = true)
     public List<Promotion> findAll() {
-        return (List<Promotion>) promotionRepository.findAll();
+        return promotionRepository.findAll();
     }
 
     @Override
@@ -44,10 +46,4 @@ public class PromotionServicesImpl implements IPromotionServices{
         return false;
     }
 
-    @Override
-    public List<Promotion> findPromotionsByVideoGameId(Long videogameId) {
-        List<Promotion> promotions = promotionRepository.findByVideogameId(videogameId);
-
-        return promotions;
-    }
 }

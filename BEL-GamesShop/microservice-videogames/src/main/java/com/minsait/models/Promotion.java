@@ -31,16 +31,5 @@
         private VideoGame videogame;
 
 
-        public BigDecimal calculateDiscountedPrice(BigDecimal originalPrice) {
-            LocalDate today = LocalDate.now();
 
-            if (startDate != null && endDate != null && !today.isBefore(startDate) && !today.isAfter(endDate)) {
-                if (percentage != null && percentage >= 0 && percentage <= 100) {
-                    BigDecimal discountMultiplier = BigDecimal.valueOf(100 - percentage).divide(BigDecimal.valueOf(100));
-                    return originalPrice.multiply(discountMultiplier);
-                }
-            }
-
-            return originalPrice;
-        }
     }
