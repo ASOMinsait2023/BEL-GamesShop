@@ -10,6 +10,10 @@ public interface IVideoGameServices {
     VideoGame findById(Long id);
     VideoGame save(VideoGame videoGame);
     boolean deleteById(Long id);
+    List<VideoGame> getVideoGameWithDiscount(Long videoGameId);
+
+
+
 
 
 }

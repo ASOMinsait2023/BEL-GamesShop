@@ -10,4 +10,9 @@ class MicroserviceVideogamesApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	public void main(){
+		MicroserviceVideogamesApplication.main(new String[]{});
+	}
+
 }
