@@ -4,7 +4,7 @@ spring:
   application:
     name: msvc-videogames
   datasource:
-    url: jdbc:mysql://localhost:3306/belgames
+    url: jdbc:mysql://localhost:3306/microservicio_videogame
     username: root
     password: Brian123
     driver-class-name: com.mysql.cj.jdbc.Driver
