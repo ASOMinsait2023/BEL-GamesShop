@@ -1,5 +1,6 @@
 package com.minsait.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.minsait.exceptions.InvalidTimeFormatException;
 import com.minsait.models.Shop;
 import com.minsait.models.Stock;
 import com.minsait.services.IShopService;
@@ -13,7 +14,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -43,6 +47,22 @@ public class ShopControllerTest {
                         .contentType(Constants.CONTENT_TYPE.getValue())
                         .content(mapper.writeValueAsString(shop)))
                 .andExpect(status().isCreated());
+    }
+    @Test
+    void testSaveShop_InvalidTimeFormat() throws Exception {
+        var shop = Data.newShopError();
+
+        doThrow(new InvalidTimeFormatException("Invalid time format. Please use 24-hour format (HH:mm)."))
+                .when(shopService)
+                .save(shop);
+
+        mvc.perform(MockMvcRequestBuilders.post(Constants.URL_SHOP.getValue() + "/create")
+                        .contentType(Constants.CONTENT_TYPE.getValue())
+                        .content(mapper.writeValueAsString(shop)))
+                .andExpect(status().isBadRequest())
+                .andExpect(result -> assertTrue(result.getResolvedException() instanceof InvalidTimeFormatException))
+                .andExpect(result -> assertEquals("Invalid time format. Please use 24-hour format (HH:mm).",
+                        result.getResolvedException().getMessage()));
     }
     @Test
     void testFindAll() throws Exception{
@@ -153,4 +173,5 @@ public class ShopControllerTest {
         mvc.perform(get(Constants.URL_SHOP.getValue()+"/stock/{shopId}", shopId))
                 .andExpect(status().isNotFound());
     }
+
 }
