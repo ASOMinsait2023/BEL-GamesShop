@@ -1,4 +1,5 @@
 package com.minsait.controllers;
+import com.minsait.exceptions.InvalidTimeFormatException;
 import com.minsait.models.Shop;
 import com.minsait.models.Stock;
 import com.minsait.models.dto.StockDTO;
@@ -26,9 +27,20 @@ public class ShopController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     void saveShop(@RequestBody Shop shop) {
+        validateHoursFormat(shop.getOpeningHour(), shop.getClosedHour());
         this.shopService.save(shop);
     }
+    private void validateHoursFormat(String openingHour, String closedHour) {
+        final String TIMEREGUEX = "([01]?[0-9]|2[0-3]):[0-5][0-9]";
+        if (!openingHour.matches(TIMEREGUEX) || !closedHour.matches(TIMEREGUEX)) {
+            throw new InvalidTimeFormatException("Invalid time format. Please use 24-hour format (HH:mm).");
+        }
+    }
 
+    @ExceptionHandler(InvalidTimeFormatException.class)
+    public ResponseEntity<String> handleInvalidTimeFormatException(InvalidTimeFormatException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
     @GetMapping
     public ResponseEntity<?> findAllShop() {
         return ResponseEntity.ok(this.shopService.findAll());
