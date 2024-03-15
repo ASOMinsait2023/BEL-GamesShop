@@ -6,6 +6,7 @@ import lombok.Data;
 public class StockDTO {
         private Long id;
         private Long videogame;
+        private Long shop;
         private Integer stock;
 
         public StockDTO(Long id, Long videogame, Integer stock) {

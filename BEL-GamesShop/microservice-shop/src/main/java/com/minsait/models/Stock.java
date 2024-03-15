@@ -21,10 +21,7 @@ public class Stock {
     private Shop shop;
     private Long videogame;
 
-    @JsonProperty("videogame")
     @Transient
     private VideoGameDTO videoGameDTO;
     private Integer stock;
-
-
 }
