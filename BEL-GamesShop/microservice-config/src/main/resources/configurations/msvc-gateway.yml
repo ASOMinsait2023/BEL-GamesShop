@@ -11,4 +11,19 @@ eureka:
     register-with-eureka: false
     fetch-registry: true
     server-url:
-      defaultZone: http://msvc-eureka:${server.port}/eureka/
+      defaultZone: http://localhost:${server.port}/eureka/
+
+gateway:
+  global: /api/v1
+  videoGames: /videogames
+  promotion: /promotion
+  categories: /categories
+  shop: /shop
+  stock: /stock
+  videoGamesService: http://localhost:7090
+  categoriesService: http://localhost:7091
+  shopService: http://localhost:7092
+
+security:
+  user: user
+  password: BEL-GamesShop
