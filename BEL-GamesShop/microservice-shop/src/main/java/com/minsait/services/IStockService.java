@@ -1,6 +1,7 @@
 package com.minsait.services;
 
 import com.minsait.models.Stock;
+import com.minsait.models.dto.StockDTOClient;
 
 import java.util.List;
 
@@ -9,5 +10,5 @@ public interface IStockService {
     Stock findById(Long id);
     Stock save(Stock stock);
     boolean deleteById(Long id);
-    List<Stock> getStockByShopId(Long shopId);
+    List<StockDTOClient> getStockByShopId(Long shopId);
 }

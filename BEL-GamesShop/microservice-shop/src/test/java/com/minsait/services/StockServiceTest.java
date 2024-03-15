@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.minsait.models.Stock;
+import com.minsait.models.dto.StockDTOClient;
 import com.minsait.repositories.IStockRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -75,7 +76,7 @@ public class StockServiceTest {
         Long shopId = 1L;
         List<Stock> stocks = List.of(new Stock(), new Stock());
         when(stockRepository.findByShopId(shopId)).thenReturn(stocks);
-        List<Stock> result = stockService.getStockByShopId(shopId);
+        List<StockDTOClient> result = stockService.getStockByShopId(shopId);
         assertEquals(stocks, result);
     }
 }

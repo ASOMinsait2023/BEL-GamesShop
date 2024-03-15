@@ -1,5 +1,7 @@
 package com.minsait.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.minsait.models.dto.VideoGameDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +20,11 @@ public class Stock {
     @JoinColumn(name = "shop")
     private Shop shop;
     private Long videogame;
+
+    @JsonProperty("videogame")
+    @Transient
+    private VideoGameDTO videoGameDTO;
     private Integer stock;
+
 
 }
