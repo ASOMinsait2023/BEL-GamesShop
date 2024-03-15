@@ -29,4 +29,8 @@ public class VideoGame {
     @JsonIgnore
     @OneToMany(mappedBy = "videogame", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Promotion> promotions;
+
+    public int calculatePromotionCount() {
+        return this.promotions != null ? this.promotions.size() : 0;
+    }
 }
