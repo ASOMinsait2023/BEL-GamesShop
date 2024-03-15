@@ -1,17 +1,24 @@
 package com.minsait.services;
 
 import com.minsait.models.Stock;
+import com.minsait.models.dto.StockDTOClient;
+import com.minsait.models.dto.VideoGameDTO;
 import com.minsait.repositories.IStockRepository;
+import com.minsait.services.clients.IVideoGameClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Service
 public class StockServiceImpl implements IStockService{
     @Autowired
     private IStockRepository stockRepository;
+    @Autowired
+        private IVideoGameClient videoGameClient;
     @Override
     @Transactional(readOnly = true)
     public List<Stock> findAll() {
@@ -45,7 +52,20 @@ public class StockServiceImpl implements IStockService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<Stock> getStockByShopId(Long shopId) {
-        return stockRepository.findByShopId(shopId);
+    public List<StockDTOClient> getStockByShopId(Long shopId) {
+        List<Stock> stocks = stockRepository.findByShopId(shopId);
+        return stocks.stream()
+                .map(this::mapStockToStockDTO)
+                .collect(Collectors.toList());
+    }
+
+    private StockDTOClient mapStockToStockDTO(Stock stock) {
+        VideoGameDTO videoGameDTO = videoGameClient.findById(stock.getVideogame());
+        return StockDTOClient.builder()
+                .id(stock.getId())
+                .shop(stock.getShop())
+                .videoGameDTO(videoGameDTO)
+                .stock(stock.getStock())
+                .build();
     }
 }

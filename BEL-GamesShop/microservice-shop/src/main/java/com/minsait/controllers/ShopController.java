@@ -3,6 +3,7 @@ import com.minsait.exceptions.InvalidTimeFormatException;
 import com.minsait.models.Shop;
 import com.minsait.models.Stock;
 import com.minsait.models.dto.StockDTO;
+import com.minsait.models.dto.StockDTOClient;
 import com.minsait.services.IShopService;
 
 import java.util.List;
@@ -91,17 +92,12 @@ public class ShopController {
     }
 
     @GetMapping("/stock/{shopId}")
-    public ResponseEntity<List<StockDTO>> getStockByShopId(@PathVariable Long shopId) {
-        try{
-            List<Stock> stocks = stockService.getStockByShopId(shopId);
-            List<StockDTO> stockResponses = stocks.stream()
-                    .map(stock -> new StockDTO(stock.getId(), stock.getVideogame(), stock.getStock()))
-                    .collect(Collectors.toList());
-            return ResponseEntity.ok(stockResponses);
-
-        }catch (NoSuchElementException e){
+    public ResponseEntity<List<StockDTOClient>> getStockByShopId(@PathVariable Long shopId) {
+        try {
+            List<StockDTOClient> stockDTOClients = stockService.getStockByShopId(shopId);
+            return ResponseEntity.ok(stockDTOClients);
+        } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
-
         }
     }
 
