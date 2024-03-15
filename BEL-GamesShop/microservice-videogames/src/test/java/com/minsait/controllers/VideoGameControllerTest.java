@@ -17,10 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.*;
@@ -84,10 +81,11 @@ class VideoGameControllerTest {
 
     @Test
     void testSave() throws Exception{
+        var promotion = new Promotion();
         var videogame = new VideoGame(null, "PAYDAY 2 ", " is an action-packed, four-player co-op " +
                 "shooter that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, " +
                 "Wolf and Chains - as they descend on Washington DC for an epic crime spree",
-                "2013-08-13", new BigDecimal("280.50"), List.of( new Promotion()));
+                "2013-08-13", new BigDecimal("280.50"), List.of(promotion));
 
         var response = new HashMap<String, Object>();
         response.put("fecha", LocalDate.now().toString());
@@ -216,5 +214,63 @@ class VideoGameControllerTest {
                 .andExpect(jsonPath("$.length()").value(2))
                 .andExpect(jsonPath("$[0].id").value(1))
                 .andExpect(jsonPath("$[1].id").value(2));
+    }
+    @Test
+    void testGetVideoGameSearchByIdPromotionNotFound() throws Exception{
+
+        when(promotionServices.getPromotionSearchVideogameById(1L)).thenThrow(new NoSuchElementException());
+
+        mockMvc.perform(get("/api/v1/videogames/promotion/1"))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void testGetPromotionCountForVideoGame() throws Exception{
+
+        Long videoGameId = 1L;
+        VideoGame videoGame = Datos.createVideogame1().get();
+
+        List<Promotion> promotions = List.of(Datos.createPromotion().get(), Datos.createPromotion2().get());
+        videoGame.setPromotions(promotions);
+
+        when(videoGameServices.findById(videoGameId)).thenReturn(videoGame);
+
+        mockMvc.perform(get("/api/v1/videogames/promotion-count/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json"))
+                .andExpect(jsonPath("$.videoGameId").value(1))
+                .andExpect(jsonPath("$.videoGameName").value("Left 4 Dead 2"))
+                .andExpect(jsonPath("$.promotionCount").value(2));
+
+        verify(videoGameServices, times(1)).findById(videoGameId);
+
+    }
+
+    @Test
+    void testGetPromotionCountForVideoGameNotExist() throws Exception{
+
+        Long videoGameId = 1L;
+
+        when(videoGameServices.findById(videoGameId)).thenReturn(null);
+
+        mockMvc.perform(get("/api/v1/videogames/promotion-count/1"))
+                .andExpect(status().isNotFound());
+
+        verify(videoGameServices, times(1)).findById(videoGameId);
+
+    }
+    @Test
+    void testGetPromotionCountForVideoGameNoSuchElementException() throws Exception{
+
+        Long videoGameId = 1L;;
+
+        when(videoGameServices.findById(videoGameId)).thenThrow(new NoSuchElementException());
+
+        mockMvc.perform(get("/api/v1/videogames/promotion-count/1"))
+                .andExpect(status().isNotFound());
+
+        verify(videoGameServices, times(1)).findById(videoGameId);
+
+
     }
 }

@@ -21,5 +21,4 @@ public interface IVideoGameRepository extends JpaRepository<VideoGame, Long> {
     List<VideoGame> findVideoGameWithDiscount(@Param("videoGameId") Long videoGameId);
 
 
-
 }

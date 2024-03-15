@@ -120,4 +120,24 @@ public class VideoGameController {
         }
 
     }
+
+    @GetMapping("/promotion-count/{id}")
+    public ResponseEntity<?> getPromotionCountForVideoGame(@PathVariable Long id) {
+        try {
+            VideoGame videoGame = videoGameServices.findById(id);
+            if (videoGame != null) {
+                int promotionCount = videoGame.calculatePromotionCount();
+                Map<String, Object> response = new HashMap<>();
+                response.put("videoGameId", videoGame.getId());
+                response.put("videoGameName", videoGame.getName());
+                response.put("promotionCount", promotionCount);
+                return ResponseEntity.ok(response);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (NoSuchElementException e){
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
