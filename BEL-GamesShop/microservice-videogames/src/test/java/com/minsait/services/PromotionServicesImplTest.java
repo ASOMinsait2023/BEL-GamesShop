@@ -84,10 +84,40 @@ class PromotionServicesImplTest {
     }
 
     @Test
-    void deleteById() {
+    void testDeleteById() {
+
+        var promotionId = 1L;
+        Promotion promotion1 = Datos.createPromotion().get();
+        when(promotionRepository.findById(promotionId)).thenReturn(Optional.of(promotion1));
+
+        boolean result = promotionServices.deleteById(promotionId);
+
+        assertTrue(result);
+        verify(promotionRepository, times(1)).deleteById(promotionId);
+
+
+    }
+    @Test
+    void testDeleteByIdNoExitingPromotion() {
+
+        var promotionId = 1L;
+        when(promotionRepository.findById(promotionId)).thenReturn(Optional.empty());
+
+        boolean result = promotionServices.deleteById(promotionId);
+
+        assertFalse(result);
+        verify(promotionRepository, never()).deleteById(promotionId);
+
+
     }
 
     @Test
     void getPromotionSearchVideogameById() {
-    }
+        var promotionId = 1L;
+        List<Promotion>  promotions = Datos.createPromotion().stream().toList();
+        when(promotionRepository.getPromotionSearchVideogameById(promotionId)).thenReturn(promotions);
+
+        List<Promotion> promotionList = promotionServices.getPromotionSearchVideogameById(promotionId);
+        assertEquals(promotions.size(), promotionList.size());
+     }
 }

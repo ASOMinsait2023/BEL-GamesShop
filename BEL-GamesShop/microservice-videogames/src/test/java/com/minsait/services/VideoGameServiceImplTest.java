@@ -86,9 +86,9 @@ class VideoGameServiceImplTest {
     }
 
     @Test
-    void testDeleteById_ExistingVideoGame() {
+    void testDeleteById() {
 
-        Long videoGameId = 1L;
+        var videoGameId = 1L;
         VideoGame videoGame = Datos.createVideogame3().get();
         when(videoGameRepository.findById(videoGameId)).thenReturn(Optional.of(videoGame));
 
