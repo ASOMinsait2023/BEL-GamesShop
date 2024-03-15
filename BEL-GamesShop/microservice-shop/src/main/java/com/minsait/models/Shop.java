@@ -33,4 +33,7 @@ public class Shop {
     @JsonIgnore
     @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Stock> stocks;
+    public Shop(Long id){
+        this.id = id;
+    }
 }
