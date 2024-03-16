@@ -2,6 +2,7 @@ package com.minsait.microservicecategories.services;
 
 
 import com.minsait.microservicecategories.models.Categories;
+import com.minsait.microservicecategories.models.Platform;
 import com.minsait.microservicecategories.repositories.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,18 @@ public class CategoryService implements ICategoryService{
 
     @Override
     @Transactional
-    public void delete(Long id) {
+    public void deleteId(Long id) {
         categoryRepository.deleteById(id);
     }
+
+    @Override
+    @Transactional
+    public void updateId(Categories category) {
+        var categoryToUpdate = categoryRepository.findById(category.getId()).orElseThrow();
+        categoryToUpdate.setNameCategory(category.getNameCategory());
+        categoryToUpdate.setDescription(category.getDescription());
+        categoryRepository.save(category);
+    }
+
+
 }
