@@ -5,13 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 @Data
 @Entity
-@Table(name = "platforms")
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "platforms")
 public class Platform {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPlatform;
@@ -19,4 +20,5 @@ public class Platform {
     private String namePlatform;
     private String publisher;
     private String generation;
+
 }

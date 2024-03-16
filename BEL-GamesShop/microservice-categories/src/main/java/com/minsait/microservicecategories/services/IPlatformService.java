@@ -10,4 +10,5 @@ public interface IPlatformService {
     void save(Platform platform);
     void deleteId(Long id);
     void updateId(Platform platform);
+
 }
