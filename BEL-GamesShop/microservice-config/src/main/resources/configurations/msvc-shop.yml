@@ -1,0 +1,23 @@
+server:
+  port: 7092
+spring:
+  application:
+    name: msvc-shop
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservice_shop
+    username: root
+    password: 23edfr45
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+
+eureka:
+  instance:
+    hostname: msvc-eureka
+  client:
+    service-url:
+      defaultZone: http://localhost:7095/eureka

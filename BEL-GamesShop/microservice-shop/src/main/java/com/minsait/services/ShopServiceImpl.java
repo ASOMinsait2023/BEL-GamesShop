@@ -22,8 +22,8 @@ public class ShopServiceImpl implements IShopService {
         return (Shop)this.shopRepository.findById(id).orElseThrow();
     }
     @Transactional
-    public void save(Shop shop) {
-        this.shopRepository.save(shop);
+    public Shop save(Shop shop) {
+        return this.shopRepository.save(shop);
     }
     @Transactional
     public boolean delleteById(Long idShop) {
@@ -37,13 +37,9 @@ public class ShopServiceImpl implements IShopService {
     }
     @Transactional(readOnly = true)
     @Override
-    public Optional<Shop> queryForAddress(String address) {
-        return Optional.of((Shop)this.shopRepository.queryForAddress(address).orElseThrow());
+    public List<Shop> queryForAddress(String address) {
+        return this.shopRepository.queryForAddress(address);
     }
 
-    @Override
-    public Optional<Stock> queryStockShop(Long id) {
-        return Optional.empty();
-    }
 }
 
