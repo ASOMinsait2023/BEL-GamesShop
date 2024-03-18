@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -33,7 +34,12 @@ public class Shop {
     @JsonIgnore
     @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Stock> stocks;
-    public Shop(Long id){
+    public Shop(Long id, String name, String address, String openingHour, String closedHour, String phoneNumber){
         this.id = id;
+        this.name = name;
+        this.address = address;
+        this.openingHour = openingHour;
+        this.closedHour = closedHour;
+        this.phoneNumber = phoneNumber;
     }
 }
