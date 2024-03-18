@@ -23,5 +23,6 @@ public class Stock {
 
     @Transient
     private VideoGameDTO videoGameDTO;
+
     private Integer stock;
 }

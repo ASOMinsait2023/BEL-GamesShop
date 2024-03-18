@@ -15,5 +15,4 @@ public class StockDTOClient {
     private Shop shop;
     private VideoGameDTO videoGameDTO;
     private Integer stock;
-
 }
