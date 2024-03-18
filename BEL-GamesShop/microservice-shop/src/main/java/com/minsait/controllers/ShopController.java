@@ -1,7 +1,9 @@
 package com.minsait.controllers;
+import com.minsait.exceptions.InvalidTimeFormatException;
 import com.minsait.models.Shop;
 import com.minsait.models.Stock;
 import com.minsait.models.dto.StockDTO;
+import com.minsait.models.dto.StockDTOClient;
 import com.minsait.services.IShopService;
 
 import java.util.List;
@@ -26,9 +28,20 @@ public class ShopController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     void saveShop(@RequestBody Shop shop) {
+        validateHoursFormat(shop.getOpeningHour(), shop.getClosedHour());
         this.shopService.save(shop);
     }
+    private void validateHoursFormat(String openingHour, String closedHour) {
+        final String TIMEREGUEX = "([01]?[0-9]|2[0-3]):[0-5][0-9]";
+        if (!openingHour.matches(TIMEREGUEX) || !closedHour.matches(TIMEREGUEX)) {
+            throw new InvalidTimeFormatException("Invalid time format. Please use 24-hour format (HH:mm).");
+        }
+    }
 
+    @ExceptionHandler(InvalidTimeFormatException.class)
+    public ResponseEntity<String> handleInvalidTimeFormatException(InvalidTimeFormatException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
     @GetMapping
     public ResponseEntity<?> findAllShop() {
         return ResponseEntity.ok(this.shopService.findAll());
@@ -79,18 +92,12 @@ public class ShopController {
     }
 
     @GetMapping("/stock/{shopId}")
-    public ResponseEntity<List<StockDTO>> getStockByShopId(@PathVariable Long shopId) {
-        try{
-            List<Stock> stocks = stockService.getStockByShopId(shopId);
-            List<StockDTO> stockResponses = stocks.stream()
-                    .map(stock -> new StockDTO(stock.getId(), stock.getVideogame(), stock.getStock()))
-                    .collect(Collectors.toList());
-            return ResponseEntity.ok(stockResponses);
-
-        }catch (NoSuchElementException e){
+    public ResponseEntity<List<StockDTOClient>> getStockByShopId(@PathVariable Long shopId) {
+        try {
+            List<StockDTOClient> stockDTOClients = stockService.getStockByShopId(shopId);
+            return ResponseEntity.ok(stockDTOClients);
+        } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
-
         }
     }
-
 }

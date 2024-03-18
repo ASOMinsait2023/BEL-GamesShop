@@ -1,17 +1,7 @@
-server:
-  port: 8080
 spring:
   config:
     import: optional:configserver:http://localhost:8888
-  datasource:
-    url: jdbc:mysql://localhost:3306/microservice_shop
-    username: root
-    password: 23edfr45
-    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: msvc-shop
 
-
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-      ddl-auto: update
 

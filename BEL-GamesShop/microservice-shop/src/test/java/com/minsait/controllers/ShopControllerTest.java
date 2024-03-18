@@ -1,156 +1,169 @@
 package com.minsait.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.minsait.models.Shop;
-import com.minsait.models.Stock;
+import com.minsait.models.dto.StockDTOClient;
 import com.minsait.services.IShopService;
 import com.minsait.services.IStockService;
 import com.minsait.utils.Constants;
 import com.minsait.utils.Data;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 @WebMvcTest(ShopController.class)
 public class ShopControllerTest {
     @Autowired
-    private MockMvc mvc;
+    private MockMvc mockMvc;
     @MockBean
     private IShopService shopService;
     @MockBean
     private IStockService stockService;
+    @Autowired
     private ObjectMapper mapper;
 
-    @BeforeEach
-    void setUp(){
-        mapper = new ObjectMapper();
-    }
     @Test
-    void testSave() throws Exception{
-        var shop = Data.newShop1();
-        mvc.perform(MockMvcRequestBuilders.post(Constants.URL_SHOP.getValue()+"/create")
+    public void testSave() throws Exception {
+        when(shopService.save(any(Shop.class))).thenReturn(Data.newShop1());
+        mockMvc.perform(post(Constants.URL_SHOP.getValue()+"/create")
                         .contentType(Constants.CONTENT_TYPE.getValue())
-                        .content(mapper.writeValueAsString(shop)))
+                        .content(mapper.writeValueAsString(Data.newShop1()))
+                        .accept(Constants.CONTENT_TYPE.getValue()))
                 .andExpect(status().isCreated());
+        verify(shopService, times(1)).save(any(Shop.class));
     }
-    @Test
-    void testFindAll() throws Exception{
-        when(shopService.findAll()).thenReturn(List.of(Data.newShop1(), Data.newShop2()));
-        mvc.perform(get(Constants.URL_SHOP.getValue())).andExpectAll(
-                status().isOk(),
-                jsonPath("$[0].name").value("Antara Polanco")
-        );
-    }
-    @Test
-    void testFindById() throws Exception{
-        Long id = 1L;
-        Shop shop = new Shop();
-        shop.setId(id);
 
-        when(shopService.findById(id)).thenReturn(shop);
-        mvc.perform(get(Constants.URL_SHOP.getValue()+"/{id}", id))
+    @Test
+    public void testFindAll() throws Exception {
+        List<Shop> shopsList = new ArrayList<>();
+        shopsList.add(Data.newShop1());
+        shopsList.add(Data.newShop2());
+        when(shopService.findAll()).thenReturn(shopsList);
+        mockMvc.perform(get(Constants.URL_SHOP.getValue())
+                        .accept(Constants.CONTENT_TYPE.getValue()))
                 .andExpectAll(
                         status().isOk(),
-                        jsonPath("$.id").value(id)
+                        jsonPath("$.size()").value(2)
                 );
+        verify(shopService, times(1)).findAll();
     }
     @Test
-    void testDelete() throws Exception{
-        Long id = 1L;
-        mvc.perform(delete(Constants.URL_SHOP.getValue()+"/{id}", id))
-                .andExpect(status().isOk());
-        verify(shopService, times(1)).delleteById(id);
-    }
-    @Test
-    void testSearchUbication() throws Exception {
-        String address = "Av. Ejército Nacional Mexicano 843-B, Granada, Miguel Hidalgo, 11520 Ciudad de México, CDMX";
-        List<Shop> list = new ArrayList<>();
-        list.add(Data.newShop1());
-        when(shopService.queryForAddress(address)).thenReturn(list);
-        mvc.perform(get(Constants.URL_SHOP.getValue()+"/searchUbication/{address}", address))
-                .andExpectAll(
-                        status().isOk(),
-                        jsonPath("$[0].address").value(address)
-                );
-    }
-    @Test
-    void testSearchUbicationNotFound() throws Exception{
-        when(shopService.queryForAddress(Data.newShop1().getAddress())).thenThrow(new NoSuchElementException());
-        mvc.perform(get(Constants.URL_SHOP.getValue()+"/searchUbication/{id}",Data.newShop1().getAddress()))
-                .andExpect(status().isNotFound());
-    }
-    @Test
-    void testUpdate() throws Exception{
-        Shop shop = Data.newShop1();
-        when(shopService.findById(shop.getId())).thenReturn(shop);
-        shop.setName("TestingName");
-        when(shopService.save(shop)).thenReturn(shop);
-
-        mvc.perform(put(Constants.URL_SHOP.getValue()+"/update/{id}", shop.getId())
-                .contentType(Constants.CONTENT_TYPE.getValue())
-                .content(mapper.writeValueAsString(shop))).andExpectAll(
-                        status().isCreated(),
-                jsonPath("$.id").value(shop.getId()),
-                jsonPath("$.name").value(shop.getName())
-        );
-    }
-    @Test
-    void testUpdateException() throws Exception{
-        Shop shop = Data.newShop1();
-
-        when(shopService.findById(shop.getId())).thenReturn(null);
-        mvc.perform(put(Constants.URL_SHOP.getValue() + "/update/{id}", shop.getId())
+    public void testSaveException() throws Exception {
+        mockMvc.perform(post(Constants.URL_SHOP.getValue()+"/create")
                         .contentType(Constants.CONTENT_TYPE.getValue())
-                        .content(mapper.writeValueAsString(shop)))
-                .andExpect(status().isBadRequest());
+                        .content(mapper.writeValueAsString(Data.newShopError()))
+                        .accept(Constants.CONTENT_TYPE.getValue()))
+                .andExpect(content().string("Invalid time format. Please use 24-hour format (HH:mm)."));
+        verify(shopService, never()).save(any(Shop.class));
     }
+
     @Test
-    void testGetStockByShopId() throws Exception{
-        var shopId = Data.newShop1().getId();
-        Stock stock1 = Data.newStock1(Data.newShop1());
-        Stock stock2 = Data.newStock2(Data.newShop1());
+    public void testFindById() throws Exception {
+        when(shopService.findById(1L)).thenReturn(Data.newShop1());
+        mockMvc.perform(get(Constants.URL_SHOP.getValue()+"/1")
+                        .accept(Constants.CONTENT_TYPE.getValue()))
+                .andExpectAll(
+                        status().isOk(),
+                        jsonPath("$.name").value("Shop 1")
 
-        when(stockService.getStockByShopId(shopId)).thenReturn(List.of(stock1, stock2));
+                );
+        verify(shopService, times(1)).findById(1L);
+    }
 
-        mvc.perform(MockMvcRequestBuilders.get(Constants.URL_SHOP.getValue() + "/stock/{shopId}", shopId))
+    @Test
+    public void testDelete() throws Exception {
+        when(shopService.delleteById(1L)).thenReturn(true);
+        mockMvc.perform(delete(Constants.URL_SHOP.getValue()+"/1")
+                        .accept(Constants.CONTENT_TYPE.getValue()))
+                .andExpect(status().isOk());
+        verify(shopService, times(1)).delleteById(1L);
+    }
+
+    @Test
+    public void testSearchUbication() throws Exception {
+        when(shopService.queryForAddress(Data.newShop1().getAddress())).thenReturn(Collections.singletonList(Data.newShop1()));
+        mockMvc.perform(get(Constants.URL_SHOP.getValue()+"/searchUbication/"+Data.newShop1().getAddress())
+                        .accept(Constants.CONTENT_TYPE.getValue()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(stock1.getId()))
-                .andExpect(jsonPath("$[0].videogame").value(stock1.getVideogame()))
-                .andExpect(jsonPath("$[0].stock").value(stock1.getStock()));
-    }
-    @Test
-    void testFindByIdException() throws Exception {
-        long id = 1L;
-        when(shopService.findById(id)).thenThrow(NoSuchElementException.class);
-
-        mvc.perform(get(Constants.URL_SHOP.getValue() + "/{id}", id))
-                .andExpect(status().isNotFound());
+                .andExpect(jsonPath("$[0].name").value(Data.newShop1().getName()));
+        verify(shopService, times(1)).queryForAddress(Data.newShop1().getAddress());
     }
 
     @Test
-    void testDeleteException() throws Exception {
-        long id = 1L;
-        when(shopService.delleteById(id)).thenThrow(NoSuchElementException.class);
-
-        mvc.perform(delete(Constants.URL_SHOP.getValue() + "/{id}", id))
+    public void testDeleteException() throws Exception {
+        doThrow(NoSuchElementException.class).when(shopService).delleteById(anyLong());
+        mockMvc.perform(delete(Constants.URL_SHOP.getValue()+"/2189231782319")
+                        .accept(Constants.CONTENT_TYPE.getValue()))
                 .andExpect(status().isNotFound());
     }
     @Test
-    void testGetStockByShopId_NoSuchElementException() throws Exception {
-        long shopId = 1L;
-        when(stockService.getStockByShopId(shopId)).thenThrow(NoSuchElementException.class);
-        mvc.perform(get(Constants.URL_SHOP.getValue()+"/stock/{shopId}", shopId))
+    public void testFindByIdException() throws Exception {
+        when(shopService.findById(anyLong())).thenThrow(NoSuchElementException.class);
+        mockMvc.perform(get(Constants.URL_SHOP.getValue()+"/921233212132199")
+                        .accept(Constants.CONTENT_TYPE.getValue()))
                 .andExpect(status().isNotFound());
+    }
+    @Test
+    public void testSearchUbicationException() throws Exception {
+        when(shopService.queryForAddress(anyString())).thenThrow(NoSuchElementException.class);
+        mockMvc.perform(get(Constants.URL_SHOP.getValue()+"/searchUbication/"+Data.newShopError().getAddress())
+                        .accept(Constants.CONTENT_TYPE.getValue()))
+                .andExpect(status().isNotFound());
+    }
+    @Test
+    public void update_ExistingIdAndValidShop_ReturnsCreated() throws Exception {
+        Shop shop = Data.newShop1();
+        when(shopService.findById(1L)).thenReturn(shop);
+        when(shopService.save(any(Shop.class))).thenReturn(shop);
+        shop.setName("Updated");
+        mockMvc.perform(put(Constants.URL_SHOP.getValue()+"/update/1")
+                        .contentType(Constants.CONTENT_TYPE.getValue())
+                        .content(mapper.writeValueAsString(shop))
+                        .accept(Constants.CONTENT_TYPE.getValue()))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.name").value("Updated"));
+        verify(shopService, times(1)).findById(1L);
+        verify(shopService, times(1)).save(any(Shop.class));
+    }
+
+    @Test
+    public void testUpdateException() throws Exception {
+        when(shopService.findById(1L)).thenReturn(null);
+        mockMvc.perform(put(Constants.URL_SHOP.getValue()+"/update/1")
+                        .contentType(Constants.CONTENT_TYPE.getValue())
+                        .content(mapper.writeValueAsString(Data.newShop1()))
+                        .accept(Constants.CONTENT_TYPE.getValue()))
+                .andExpect(status().isBadRequest());
+        verify(shopService, times(1)).findById(1L);
+        verify(shopService, times(0)).save(any(Shop.class));
+    }
+    @Test
+    public void testGetStockByShopId() throws Exception {
+        List<StockDTOClient> stockDTOClients = new ArrayList<>();
+        stockDTOClients.add(Data.newStockDTOClient1());
+        stockDTOClients.add(Data.newStockDTOClient2());
+        when(stockService.getStockByShopId(anyLong())).thenReturn(stockDTOClients);
+        mockMvc.perform(get(Constants.URL_SHOP.getValue()+"/stock/1")
+                        .accept(Constants.CONTENT_TYPE.getValue()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.size()").value(2))
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[1].id").value(2));
+        verify(stockService, times(1)).getStockByShopId(1L);
+    }
+    @Test
+    public void testGetStockByShopIdEx() throws Exception {
+        when(stockService.getStockByShopId(anyLong())).thenThrow(NoSuchElementException.class);
+        mockMvc.perform(get(Constants.URL_SHOP.getValue()+"/stock/999")
+                        .accept(Constants.CONTENT_TYPE.getValue()))
+                .andExpect(status().isNotFound());
+        verify(stockService, times(1)).getStockByShopId(999L);
     }
 }

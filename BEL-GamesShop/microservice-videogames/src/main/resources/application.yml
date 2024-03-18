@@ -1,17 +1,7 @@
-server:
-  port: 7090
 spring:
   config:
     import: optional:configserver:http://localhost:8888
-  datasource:
-    url: jdbc:mysql://localhost:3306/belgames
-    username: root
-    password: Brian123
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-      ddl-auto: update
+  application:
+    name: msvc-videogames
 
 

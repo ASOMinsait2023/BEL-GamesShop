@@ -1,0 +1,22 @@
+server:
+  port: 7091
+spring:
+  application:
+    name: msvc-categories
+  datasource:
+    url: jdbc:mysql://localhost:3306/belgames
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+eureka:
+  instance:
+    hostname: msvc-eureka
+  client:
+    service-url:
+      defaultZone: http://localhost:7095/eureka
