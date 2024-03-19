@@ -4,7 +4,7 @@ spring:
   application:
     name: msvc-videogames
   datasource:
-    url: jdbc:mysql://localhost:3306/microservice_videogame
+    url: jdbc:mysql://localhost:3306/microservicio_videogame
     username: root
     password: Brian123
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -19,6 +19,5 @@ eureka:
     hostname: msvc-eureka
   client:
     service-url:
-      defaultZone: h:7095/eureka
-
+      defaultZone: http://localhost:7095/eureka
 
