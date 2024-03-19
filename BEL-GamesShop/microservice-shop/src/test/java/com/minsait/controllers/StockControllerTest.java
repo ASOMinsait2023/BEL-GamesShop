@@ -51,9 +51,7 @@ public class StockControllerTest{
         Stock stock2 = new Stock();
         List<Stock> stocks = Arrays.asList(Data.newStock1(), Data.newStock2());
         when(stockService.findAll()).thenReturn(stocks);
-
         ResponseEntity<?> responseEntity = stockController.findAllStock();
-
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(2, ((List<StockDTOClient>) responseEntity.getBody()).size());
     }
@@ -63,34 +61,23 @@ public class StockControllerTest{
         Long id = 1L;
         Stock stock = new Stock();
         when(stockService.findById(id)).thenReturn(stock);
-
         ResponseEntity<?> responseEntity = stockController.findById(id);
-
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
     @Test
     void testFindByIdException() {
         Long id = 1L;
         when(stockService.findById(id)).thenThrow(NoSuchElementException.class);
-
         ResponseEntity<?> responseEntity = stockController.findById(id);
-
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
         assertFalse(responseEntity.hasBody());
     }
 
     @Test
     void deleteTest() {
-        // Configurar el comportamiento esperado del mock
         when(stockService.deleteById(anyLong())).thenReturn(true);
-
-        // Llamar al método delete de StockController
         ResponseEntity<?> response = stockController.delete(1L);
-
-        // Verificar que el método delete(id) de stockService se llama exactamente una vez
         verify(stockService, times(1)).deleteById(1L);
-
-        // Verificar el estado de la respuesta
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertTrue(response.hasBody());
@@ -104,9 +91,7 @@ public class StockControllerTest{
         Shop shop = new Shop();
         when(stockService.findById(id)).thenReturn(existingStock);
         when(shopService.findById(stockDTO.getShop())).thenReturn(shop);
-
         ResponseEntity<?> responseEntity = stockController.update(id, stockDTO);
-
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(true, responseEntity.getBody());
         verify(stockService, times(1)).save(existingStock);
@@ -117,9 +102,7 @@ public class StockControllerTest{
         Long id = 1L;
         StockDTO stockDTO = Data.newStockDTO1();
         when(stockService.findById(id)).thenReturn(null);
-
         ResponseEntity<?> responseEntity = stockController.update(id, stockDTO);
-
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
     }
 
@@ -128,9 +111,7 @@ public class StockControllerTest{
         Long id = 1L;
         StockDTO stockDTO = Data.newStockDTO1();
         when(stockService.findById(id)).thenThrow(new NoSuchElementException());
-
         ResponseEntity<?> responseEntity = stockController.update(id, stockDTO);
-
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
     }
 
