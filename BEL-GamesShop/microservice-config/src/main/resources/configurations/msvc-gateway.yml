@@ -11,13 +11,14 @@ eureka:
     register-with-eureka: false
     fetch-registry: true
     server-url:
-      defaultZone: http://localhost:${server.port}/eureka/
+      defaultZone: http://msvc-eureka:${server.port}/eureka/
 
 gateway:
   global: /api/v1
   videoGames: /videogames
   promotion: /promotion
   categories: /categories
+  platforms: /platforms
   shop: /shop
   stock: /stock
   videoGamesService: http://localhost:7090
