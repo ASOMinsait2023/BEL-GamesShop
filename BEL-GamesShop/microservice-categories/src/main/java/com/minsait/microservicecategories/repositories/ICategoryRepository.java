@@ -7,6 +7,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
+import java.util.List;
+
 public interface ICategoryRepository extends JpaRepository<Categories, Long>{
     List<Categories> findAllByVideoGameId(Long videoGameId);
 

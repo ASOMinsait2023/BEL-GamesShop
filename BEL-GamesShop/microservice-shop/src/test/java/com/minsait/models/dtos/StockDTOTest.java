@@ -23,7 +23,7 @@ public class StockDTOTest {
         StockDTO stockDTO = new StockDTO(id, videogame, stockQuantity);
         String toStringResult = stockDTO.toString();
 
-        String expectedToString = "StockDTO(id=1, videogame=2, stock=10)";
+        String expectedToString = "StockDTO(id=1, videogame=2, shop=null, stock=10)";
         assertEquals(expectedToString, toStringResult);
     }
 }

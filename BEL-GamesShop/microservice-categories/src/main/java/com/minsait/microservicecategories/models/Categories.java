@@ -18,7 +18,6 @@ public class Categories implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(name = "name_category", unique = true)
     private String nameCategory;
     private String description;
@@ -33,4 +32,5 @@ public class Categories implements Serializable{
     /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "platform")
     private Platform platform;*/
+
 }

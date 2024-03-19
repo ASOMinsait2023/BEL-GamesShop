@@ -81,4 +81,5 @@ public class ShopServiceTest {
         List<Shop> result = shopService.queryForAddress(address);
         assertEquals(shops, result);
     }
+
 }

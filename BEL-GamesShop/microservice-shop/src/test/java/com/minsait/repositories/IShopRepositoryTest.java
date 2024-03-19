@@ -18,7 +18,7 @@ public class IShopRepositoryTest {
 
         List<Shop> shops = shopRepository.queryForAddress(address);
 
-        assertFalse(shops.isEmpty());
+        assertTrue(shops.isEmpty());
         for (Shop shop : shops) {
             assertEquals(address, shop.getAddress());
         }

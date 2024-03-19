@@ -1,14 +1,17 @@
 package com.minsait.microservicecategories.controllers;
 
+
 import com.minsait.microservicecategories.models.Categories;
 import com.minsait.microservicecategories.models.Platform;
 import com.minsait.microservicecategories.models.dtos.CategoryDTO;
 import com.minsait.microservicecategories.models.dtos.PlatformDTO;
+
 import com.minsait.microservicecategories.services.IPlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -53,6 +56,7 @@ public class PlatformController {
 
     @GetMapping("/all")
     public ResponseEntity<?> findAll() {
+
         try {
             return ResponseEntity.ok(platformService.findAll());
         } catch (Exception e) {

@@ -100,5 +100,4 @@ public class ShopController {
             return ResponseEntity.notFound().build();
         }
     }
-
 }

@@ -13,11 +13,9 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "platforms")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Platform implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,7 +23,6 @@ public class Platform implements Serializable {
     private String namePlatform;
     private String publisher;
     private String generation;
-
 
     /*@OneToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Categories> categories;*/

@@ -2,6 +2,7 @@ package com.minsait.microservicecategories.services;
 
 import com.minsait.microservicecategories.models.Categories;
 import com.minsait.microservicecategories.models.dtos.CategoryByVideoGameDTO;
+
 import java.util.List;
 
 public interface ICategoryService {
@@ -14,7 +15,5 @@ public interface ICategoryService {
     //CategoryByVideoGameDTO findCategoryByVideoGameId(Long id);
     List<Categories> findByPlatformId(Long platformId);
     List<Categories> findByVideoGameId(Long videoGameId);
-
-
 
 }

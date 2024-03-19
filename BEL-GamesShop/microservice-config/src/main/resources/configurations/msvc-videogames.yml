@@ -9,11 +9,10 @@ spring:
     password: Brian123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-      ddl-auto: update
+    jpa:
+      database-platform: org.hibernate.dialect.MySQL8Dialect
+      hibernate:
+        ddl-auto: update
 
 eureka:
   instance:
@@ -21,5 +20,4 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7095/eureka
-
 

@@ -10,4 +10,10 @@ class MicroserviceEurekaApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void main() {
+		MicroserviceEurekaApplication.main(new String[]{});
+	}
+
+
 }

@@ -1,123 +1,119 @@
 package com.minsait.controllers;
 
-import org.apache.tomcat.util.bcel.Const;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.minsait.models.Shop;
 import com.minsait.models.Stock;
+import com.minsait.models.dto.StockDTO;
+import com.minsait.models.dto.StockDTOClient;
+import com.minsait.services.IShopService;
 import com.minsait.services.IStockService;
-import com.minsait.utils.Constants;
+import com.minsait.services.clients.IVideoGameClient;
 import com.minsait.utils.Data;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-@WebMvcTest(StockController.class)
-public class StockControllerTest {
-    @Autowired
-    private MockMvc mvc;
+public class StockControllerTest{
 
-    @MockBean
+    @Mock
     private IStockService stockService;
 
-    @Autowired
-    private ObjectMapper mapper;
+    @Mock
+    private IShopService shopService;
+    @Mock
+    private IVideoGameClient videoGameClient;
 
-    @Test
-    void testSave() throws Exception {
-        Stock stock = Data.newStock();
+    @InjectMocks
+    private StockController stockController;
 
-        mvc.perform(post(Constants.URL_STOCK.getValue() +"/create")
-                        .contentType(Constants.CONTENT_TYPE.getValue())
-                        .content(mapper.writeValueAsString(stock)))
-                .andExpect(status().isCreated());
+    public StockControllerTest() {
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void testFindAll() throws Exception {
-        when(stockService.findAll()).thenReturn(List.of(Data.newStock()));
-
-        mvc.perform(get(Constants.URL_STOCK.getValue() ))
-                .andExpect(status().isOk());
+    void saveStockTest() {
+        Stock stock = new Stock();
+        stockController.saveStock(stock);
+        verify(stockService, times(1)).save(stock);
+    }
+    @Test
+    void findAllStockTest() {
+        Stock stock1 = new Stock();
+        Stock stock2 = new Stock();
+        List<Stock> stocks = Arrays.asList(Data.newStock1(), Data.newStock2());
+        when(stockService.findAll()).thenReturn(stocks);
+        ResponseEntity<?> responseEntity = stockController.findAllStock();
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(2, ((List<StockDTOClient>) responseEntity.getBody()).size());
     }
 
     @Test
-    void testFindById() throws Exception {
-        long id = 1L;
-        Stock stock = Data.newStock();
-        stock.setId(id);
-
+    void findByIdTest() {
+        Long id = 1L;
+        Stock stock = new Stock();
         when(stockService.findById(id)).thenReturn(stock);
-
-        mvc.perform(get(Constants.URL_STOCK.getValue() +"/{id}", id))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(id));
+        ResponseEntity<?> responseEntity = stockController.findById(id);
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
-
     @Test
-    void testDelete() throws Exception {
-        long id = 1L;
-
-        mvc.perform(delete(Constants.URL_STOCK.getValue() +"/{id}", id))
-                .andExpect(status().isOk());
-
-        verify(stockService, times(1)).deleteById(id);
-    }
-
-    @Test
-    void testUpdate() throws Exception {
-        long id = 1L;
-        Stock existingStock = Data.newStock();
-        Stock newStock = Data.newStock();
-        newStock.setId(id);
-
-        when(stockService.findById(id)).thenReturn(existingStock);
-        when(stockService.save(existingStock)).thenReturn(newStock);
-
-        mvc.perform(put(Constants.URL_STOCK.getValue() +"/update/{id}", id)
-                        .contentType(Constants.CONTENT_TYPE.getValue())
-                        .content(mapper.writeValueAsString(newStock)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(id))
-                .andExpect(jsonPath("$.videogame").value(newStock.getVideogame()));
-    }
-
-    @Test
-    void testFindByIdNoSuchElementException() throws Exception {
-        long id = 1L;
+    void testFindByIdException() {
+        Long id = 1L;
         when(stockService.findById(id)).thenThrow(NoSuchElementException.class);
-
-        mvc.perform(get(Constants.URL_STOCK.getValue() +"/{id}", id))
-                .andExpect(status().isNotFound());
+        ResponseEntity<?> responseEntity = stockController.findById(id);
+        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
+        assertFalse(responseEntity.hasBody());
     }
 
     @Test
-    void testDeleteNoSuchElementException() throws Exception {
-        long id = 1L;
-        when(stockService.deleteById(id)).thenThrow(NoSuchElementException.class);
-
-        mvc.perform(delete(Constants.URL_STOCK.getValue() +"/{id}", id))
-                .andExpect(status().isNotFound());
+    void deleteTest() {
+        when(stockService.deleteById(anyLong())).thenReturn(true);
+        ResponseEntity<?> response = stockController.delete(1L);
+        verify(stockService, times(1)).deleteById(1L);
+        assertNotNull(response);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertTrue(response.hasBody());
     }
 
     @Test
-    void testUpdateNoSuchElementException() throws Exception {
-        long id = 1L;
-        Stock newStock = Data.newStock();
-        newStock.setId(id);
+    void updateTest() {
+        Long id = 1L;
+        StockDTO stockDTO = Data.newStockDTO1();
+        Stock existingStock = new Stock();
+        Shop shop = new Shop();
+        when(stockService.findById(id)).thenReturn(existingStock);
+        when(shopService.findById(stockDTO.getShop())).thenReturn(shop);
+        ResponseEntity<?> responseEntity = stockController.update(id, stockDTO);
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(true, responseEntity.getBody());
+        verify(stockService, times(1)).save(existingStock);
+    }
 
+    @Test
+    void updateTest_NotFound() {
+        Long id = 1L;
+        StockDTO stockDTO = Data.newStockDTO1();
         when(stockService.findById(id)).thenReturn(null);
-
-        mvc.perform(put(Constants.URL_STOCK.getValue() +"/update/{id}", id)
-                        .contentType(Constants.CONTENT_TYPE.getValue())
-                        .content(mapper.writeValueAsString(newStock)))
-                .andExpect(status().isNotFound());
+        ResponseEntity<?> responseEntity = stockController.update(id, stockDTO);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
     }
+
+    @Test
+    void updateTest_Exception() {
+        Long id = 1L;
+        StockDTO stockDTO = Data.newStockDTO1();
+        when(stockService.findById(id)).thenThrow(new NoSuchElementException());
+        ResponseEntity<?> responseEntity = stockController.update(id, stockDTO);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
+    }
+
+
 }

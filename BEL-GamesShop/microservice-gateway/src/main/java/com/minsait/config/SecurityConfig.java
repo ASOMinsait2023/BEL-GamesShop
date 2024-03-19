@@ -30,6 +30,8 @@ public class SecurityConfig {
     private String promotion;
     @Value("${gateway.categories}")
     private String categories;
+    @Value("${gateway.platforms}")
+    private String platforms;
     @Value("${gateway.shop}")
     private String shop;
     @Value("${gateway.stock}")
@@ -39,7 +41,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity security) throws Exception {
         security
                 .authorizeHttpRequests(auth -> auth.requestMatchers(global + videoGames + "/**", global + promotion + "/**",
-                        global + categories + "/**", global + shop + "/**", global + stock + "/**")
+                        global + categories + "/**",global + platforms + "/**" ,global + shop + "/**", global + stock + "/**")
                         .authenticated())
                 .httpBasic(Customizer.withDefaults());
         return security.build();

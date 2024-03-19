@@ -23,6 +23,8 @@ public class GatewayConfig {
     private String promotion;
     @Value("${gateway.categories}")
     private String categories;
+    @Value("${gateway.platforms}")
+    private String platforms;
     @Value("${gateway.shop}")
     private String shop;
     @Value("${gateway.stock}")
@@ -42,14 +44,25 @@ public class GatewayConfig {
                                  videoGamesBuilder.route(GatewayRequestPredicates.path("/**"),
                                          this::forwardToVideoGamesService)
                          )
+                         .nest(GatewayRequestPredicates.path(promotion), promotionbuilder ->
+                                 promotionbuilder.route(GatewayRequestPredicates.path("/**"),
+                                        this::forwardToVideoGamesService)
+                         )
                          .nest(GatewayRequestPredicates.path(categories), categoriesBuilder ->
                                  categoriesBuilder.route(GatewayRequestPredicates.path("/**"),
+                                         this::forwardToCategoriesService)
+                         )
+                         .nest(GatewayRequestPredicates.path(platforms), plataformsbuilder ->
+                                 plataformsbuilder.route(GatewayRequestPredicates.path("/**"),
                                          this::forwardToCategoriesService)
                          )
                          .nest(GatewayRequestPredicates.path(shop), shopBuilder ->
                                  shopBuilder.route(GatewayRequestPredicates.path("/**"),
                                          this::forwardToShopService)
-                         )).build();
+                         )
+                         .nest(GatewayRequestPredicates.path(stock), stockBuilder1 ->
+                                 stockBuilder1.route(GatewayRequestPredicates.path("/**"),
+                                         this::forwardToShopService))).build();
 
     }
 

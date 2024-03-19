@@ -29,6 +29,7 @@ public class PlatformService implements IPlatformService{
     @Transactional
     public Platform save(Platform platform) {
         return platformRepository.save(platform);
+
     }
 
     @Override
@@ -52,4 +53,3 @@ public class PlatformService implements IPlatformService{
         platformRepository.save(platform);
     }
 
-}
