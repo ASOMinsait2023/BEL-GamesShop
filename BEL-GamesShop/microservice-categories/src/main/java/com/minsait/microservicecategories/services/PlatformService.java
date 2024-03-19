@@ -27,24 +27,29 @@ public class PlatformService implements IPlatformService{
 
     @Override
     @Transactional
-    public void save(Platform platform) {
-        platformRepository.save(platform);
+    public Platform save(Platform platform) {
+        return platformRepository.save(platform);
+
     }
 
     @Override
     @Transactional
-    public void deleteId(Long id) {
-        platformRepository.deleteById(id);
+    public boolean deleteId(Long id) {
+        var platformDelete = platformRepository.findById(id);
+        if (platformDelete.isPresent()){
+            platformRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     @Override
     @Transactional
     public void updateId(Platform platform) {
-        var platformToUpdate = platformRepository.findById(platform.getIdPlatform()).orElseThrow();
+        var platformToUpdate = platformRepository.findById(platform.getId()).orElseThrow();
         platformToUpdate.setNamePlatform(platform.getNamePlatform());
         platformToUpdate.setPublisher(platform.getPublisher());
         platformToUpdate.setGeneration(platform.getGeneration());
         platformRepository.save(platform);
     }
 
-}

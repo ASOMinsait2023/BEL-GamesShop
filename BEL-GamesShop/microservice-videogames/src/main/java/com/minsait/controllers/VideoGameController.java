@@ -140,4 +140,13 @@ public class VideoGameController {
         }
     }
 
+    @GetMapping("/search-category/{Categoryid}")
+    public ResponseEntity<?> findCategoryByVideoGameId(@PathVariable Long Categoryid){
+        try {
+            return ResponseEntity.ok(videoGameServices.findCategoryByVideoGameId(Categoryid));
+        }catch (NoSuchElementException e){
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

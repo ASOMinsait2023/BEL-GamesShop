@@ -24,10 +24,19 @@ public class CategoryController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity<?> findAllCategory() {
+    @GetMapping("/all")
+    public ResponseEntity<?> findAll() {
         try {
             return ResponseEntity.ok(categoryService.findAll());
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/platform/{idPlatform}")
+    public ResponseEntity<?> findByPlatformId(@PathVariable Long idPlatform) {
+        try {
+            return ResponseEntity.ok(categoryService.findByPlatformId(idPlatform));
         } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         }
@@ -50,7 +59,6 @@ public class CategoryController {
         } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         }
-
     }
     @PutMapping("/{id}")
     public ResponseEntity<?> updateCategory(@PathVariable Long id, @RequestBody Categories category) {
@@ -64,5 +72,17 @@ public class CategoryController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/game/{idVideoGame}")
+    public ResponseEntity<?> findByVideoGameId(@PathVariable Long idVideoGame){
+
+            var response = categoryService.findByVideoGameId(idVideoGame);
+            if (response.isEmpty()) {
+                throw new NoSuchElementException();
+            }
+            return ResponseEntity.ok(response);
+
+    }
+
 
 }

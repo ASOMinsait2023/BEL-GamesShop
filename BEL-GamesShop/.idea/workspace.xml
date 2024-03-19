@@ -5,40 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="751ea5a4-3801-4302-9a70-aba72a6655f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/5/557a96cab903a0f8448ca24fd06eefcc9761fcc9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/7/a70948a4628b613565ddfee69e35dcd13a5f174b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/5/557a96cab903a0f8448ca24fd06eefcc9761fcc9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/7/a70948a4628b613565ddfee69e35dcd13a5f174b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/0/00a93194958cd129a9b3c4d8b95491143a0ca53b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/1049ea406965546c14ca1e869bc32e09e8e3fcbe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b01cb70c665d0b64db8cb9ff1b5a7ada6071079" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b01cb70c665d0b64db8cb9ff1b5a7ada6071079" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/9/894d07f4170399dfa9f4d8ed5d8cce44c2d12b91" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/9/894d07f4170399dfa9f4d8ed5d8cce44c2d12b91" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8e76af489f8046000081865d4f176ee7f1693e93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2af489e309fa84c92bcfb7ff061aba71936b000" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2af489e309fa84c92bcfb7ff061aba71936b000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/d/ada51774ae761157c217228eeeaabb1935083902" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/d/ada51774ae761157c217228eeeaabb1935083902" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/6/b66c2364133725631139a1de5cb08400c8dcf30d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/5/e58bd736e4f5cdfb7762ba473f735f7e302e8d5f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/0/00a93194958cd129a9b3c4d8b95491143a0ca53b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/0/1049ea406965546c14ca1e869bc32e09e8e3fcbe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/e/8e76af489f8046000081865d4f176ee7f1693e93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/6/b66c2364133725631139a1de5cb08400c8dcf30d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/5/e58bd736e4f5cdfb7762ba473f735f7e302e8d5f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/MicroserviceCategoriesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/MicroserviceCategoriesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/models/Categories.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/models/Categories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/models/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/models/Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/repositories/ICategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/repositories/ICategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/repositories/IPlatformRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/repositories/IPlatformRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/services/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/services/ICategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/services/ICategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/services/IPlatformService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/java/com/minsait/microservicecategories/services/IPlatformService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-categories/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-categories/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/MicroserviceShopApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/MicroserviceShopApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/controllers/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/controllers/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/controllers/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/controllers/StockController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/exceptions/InvalidTimeFormatException.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/exceptions/InvalidTimeFormatException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/Shop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/Stock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/StockDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/StockDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/StockDTOClient$StockDTOClientBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/StockDTOClient$StockDTOClientBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/StockDTOClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/StockDTOClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/VideoGameDTO$VideoGameDTOBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/VideoGameDTO$VideoGameDTOBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/VideoGameDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/models/dto/VideoGameDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/repositories/IShopRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/repositories/IShopRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/repositories/IStockRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/repositories/IStockRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/IShopService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/IShopService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/IStockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/IStockService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/ShopServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/ShopServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/StockServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/StockServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/clients/IVideoGameClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-shop/target/classes/com/minsait/services/clients/IVideoGameClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/VideoGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/controllers/VideoGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/VideoGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/models/VideoGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IPromotionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IPromotionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IVideoGameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/repositories/IVideoGameRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IPromotionServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IPromotionServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IVideoGameServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/IVideoGameServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/PromotionServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/PromotionServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/VideoGameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/java/com/minsait/services/VideoGameServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/test/java/com/minsait/controllers/Datos.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/test/java/com/minsait/controllers/Datos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/test/java/com/minsait/controllers/PromotionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/test/java/com/minsait/controllers/PromotionControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/test/java/com/minsait/controllers/VideoGameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/test/java/com/minsait/controllers/VideoGameControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/test/java/com/minsait/services/VideoGameServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/test/java/com/minsait/services/VideoGameServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-videogames/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-videogames/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,12 +55,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -68,69 +81,71 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MicroserviceConfigApplication.executor": "Run",
-    "Application.MicroserviceEurekaApplication.executor": "Run",
-    "Application.MicroserviceGatewayApplication.executor": "Run",
-    "Application.MicroserviceVideogamesApplication.executor": "Run",
-    "JUnit.All in microservice-videogames.executor": "Coverage",
-    "JUnit.MicroserviceVideogamesApplicationTests and 2 more.executor": "Coverage",
-    "JUnit.MicroserviceVideogamesApplicationTests.main.executor": "Run",
-    "JUnit.PromotionControllerTest and 1 more.executor": "Run",
-    "JUnit.PromotionControllerTest.executor": "Run",
-    "JUnit.PromotionControllerTest.findAllPromotion.executor": "Run",
-    "JUnit.PromotionControllerTest.findByIdPromotion.executor": "Run",
-    "JUnit.PromotionControllerTest.testDelete.executor": "Run",
-    "JUnit.PromotionControllerTest.testSave.executor": "Run",
-    "JUnit.PromotionControllerTest.testSaveException.executor": "Run",
-    "JUnit.PromotionControllerTest.testSaveNoNoSuchElementException.executor": "Run",
-    "JUnit.PromotionControllerTest.testUpdateBadRequestException.executor": "Run",
-    "JUnit.PromotionControllerTest.testfindByIdNotFound.executor": "Run",
-    "JUnit.PromotionControllerTest.testsave.executor": "Run",
-    "JUnit.PromotionControllerTest.update.executor": "Run",
-    "JUnit.VideoGameControllerTest and 1 more.executor": "Run",
-    "JUnit.VideoGameControllerTest.executor": "Run",
-    "JUnit.VideoGameControllerTest.findAllVideoGame.executor": "Run",
-    "JUnit.VideoGameControllerTest.findById.executor": "Run",
-    "JUnit.VideoGameControllerTest.getVideoGameWithDiscount.executor": "Run",
-    "JUnit.VideoGameControllerTest.testFindAllVideoGame (1).executor": "Run",
-    "JUnit.VideoGameControllerTest.testFindAllVideoGame.executor": "Run",
-    "JUnit.VideoGameControllerTest.testGetVideoGameSearchByIdPromotion.executor": "Run",
-    "JUnit.VideoGameControllerTest.testGetVideoGameWithDiscountNotFound.executor": "Run",
-    "JUnit.VideoGameControllerTest.testGetVideoGameWithDiscount_NoPromotionsAvailable.executor": "Run",
-    "JUnit.VideoGameControllerTest.testGetVideoGameWithDiscount_VideoGameNotFound.executor": "Run",
-    "JUnit.VideoGameControllerTest.testSaveWithException.executor": "Run",
-    "JUnit.VideoGameControllerTest.testUpdate.executor": "Run",
-    "JUnit.VideoGameControllerTest.testUpdateBadRequestException.executor": "Run",
-    "JUnit.VideoGameControllerTest.testUpdateNotFoundException.executor": "Run",
-    "JUnit.VideoGameControllerTest.testdelete.executor": "Run",
-    "JUnit.VideoGameControllerTest.testdeleteNotFoundException.executor": "Run",
-    "JUnit.VideoGameControllerTest.testfindByIdnotFound.executor": "Run",
-    "JUnit.VideoGameControllerTest.testsave.executor": "Run",
-    "JUnit.VideoGameControllerTest.testtestfindByIdnotFound.executor": "Run",
-    "JUnit.VideoGameServiceImplTest.TestGetVideoGameWithDiscount.executor": "Run",
-    "JUnit.VideoGameServiceImplTest.executor": "Run",
-    "JUnit.VideoGameServiceImplTest.findById.executor": "Run",
-    "JUnit.VideoGameServiceImplTest.save.executor": "Run",
-    "JUnit.VideoGameServiceImplTest.testDeleteById_ExistingVideoGame.executor": "Run",
-    "JUnit.VideoGameServiceImplTest.testDeleteById_NonExistingVideoGame.executor": "Run",
-    "JUnit.VideoGameServiceImplTest.testFindAll.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "feature/feature__videogame__pruebas",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/SoporteTI/IdeaProjects/AcademiaAso/BEL-GamesShop/BEL-GamesShop/microservice-config/src/main/resources/configurations",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MicroserviceCategoriesApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MicroserviceConfigApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MicroserviceEurekaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MicroserviceGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MicroserviceShopApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MicroserviceVideogamesApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in microservice-videogames.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.MicroserviceVideogamesApplicationTests and 2 more.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.MicroserviceVideogamesApplicationTests.main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest and 1 more.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.findAllPromotion.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.findByIdPromotion.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.testDelete.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.testSave.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.testSaveException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.testSaveNoNoSuchElementException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.testUpdateBadRequestException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.testfindByIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.testsave.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PromotionControllerTest.update.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest and 1 more.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.findAllVideoGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.findById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.getVideoGameWithDiscount.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testFindAllVideoGame (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testFindAllVideoGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testGetVideoGameSearchByIdPromotion.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testGetVideoGameWithDiscountNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testGetVideoGameWithDiscount_NoPromotionsAvailable.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testGetVideoGameWithDiscount_VideoGameNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testSaveWithException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testUpdateBadRequestException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testUpdateNotFoundException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testdelete.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testdeleteNotFoundException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testfindByIdnotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testsave.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameControllerTest.testtestfindByIdnotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameServiceImplTest.TestGetVideoGameWithDiscount.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameServiceImplTest.findById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameServiceImplTest.save.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameServiceImplTest.testDeleteById_ExistingVideoGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameServiceImplTest.testDeleteById_NonExistingVideoGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoGameServiceImplTest.testFindAll.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/feature__update__test__categories&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SoporteTI/IdeaProjects/AcademiaAso/BEL-GamesShop/BEL-GamesShop/microservice-config/src/main/resources/configurations&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\SoporteTI\IdeaProjects\AcademiaAso\BEL-GamesShop\BEL-GamesShop\microservice-config\src\main\resources\configurations" />
@@ -142,11 +157,27 @@
       <recent name="com.minsait.services" />
       <recent name="com.minsait.controllers" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.minsait.models.dto" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.MicroserviceVideogamesApplication">
-    <configuration name="MicroserviceConfigApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.minsait.MicroserviceConfigApplication" />
-      <module name="microservice-config" />
+  <component name="RunManager" selected="Application.MicroserviceCategoriesApplication">
+    <configuration name="MicroserviceCategoriesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.minsait.microservicecategories.MicroserviceCategoriesApplication" />
+      <module name="microservice-categories" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.minsait.microservicecategories.clients.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MicroserviceShopApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.minsait.MicroserviceShopApplication" />
+      <module name="microservice-shop" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.minsait.*" />
@@ -166,14 +197,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in microservice-videogames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-videogames" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -212,9 +235,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MicroserviceCategoriesApplication" />
         <item itemvalue="Application.MicroserviceVideogamesApplication" />
-        <item itemvalue="Application.MicroserviceConfigApplication" />
-        <item itemvalue="JUnit.All in microservice-videogames" />
+        <item itemvalue="Application.MicroserviceShopApplication" />
         <item itemvalue="JUnit.VideoGameServiceImplTest.TestGetVideoGameWithDiscount" />
         <item itemvalue="JUnit.VideoGameServiceImplTest.testDeleteById_NonExistingVideoGame" />
       </list>
@@ -224,8 +247,6 @@
     <attachedChunks>
       <set>
         <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e" />
-        <option value="jdk-20.0.2-corretto-20.0.2.1-4caba194b151-5bc9ecd2" />
       </set>
     </attachedChunks>
   </component>
