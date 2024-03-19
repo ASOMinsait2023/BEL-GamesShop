@@ -10,4 +10,9 @@ class MicroserviceConfigApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void main() {
+		MicroserviceConfigApplication.main(new String[]{});
+	}
+
 }

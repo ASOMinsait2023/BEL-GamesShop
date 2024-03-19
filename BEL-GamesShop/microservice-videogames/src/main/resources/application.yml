@@ -3,5 +3,5 @@ spring:
     import: optional:configserver:http://localhost:8888
   application:
     name: msvc-videogames
-
-
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect

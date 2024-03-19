@@ -9,5 +9,8 @@ class MicroserviceGatewayApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
+	@Test
+	void main() {
+		MicroserviceGatewayApplication.main(new String[]{});
+	}
 }
